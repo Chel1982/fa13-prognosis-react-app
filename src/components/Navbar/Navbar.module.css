@@ -36,7 +36,7 @@
     position: absolute;
     left: 9px;
     top: 8px;
-    background: url(./images/menu-main-icons.png) no-repeat 0 -64px;
+    background: url(./images/menu-main-icons.png) 0 -64px  no-repeat;
 }
 
 .championsLeague {
@@ -47,5 +47,5 @@
     position: absolute;
     left: 9px;
     top: 8px;
-    background: url(./images/menu-main-icons.png) no-repeat 0 -32px;
+    background: url(./images/menu-main-icons.png) 0 -32px no-repeat;
 }

@@ -3,6 +3,21 @@
     /*background: pink;*/
 }
 
-.content {
-    /*text-align: justify;*/
+.videoSource {
+    width: 24px;
+    height: 24px;
+    background: url(./images/game-links-icons.png) 0 0 no-repeat;
+    margin-top: 17px;
+}
+
+.textSource {
+    width: 24px;
+    height: 24px;
+    background: url(./images/game-links-icons.png) -48px 0 no-repeat;
+    margin-top: 17px;
+}
+
+.match{
+    display: flex;
+    flex-direction: row;
 }

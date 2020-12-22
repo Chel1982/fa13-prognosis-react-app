@@ -1,21 +1,19 @@
 .main-content {
   display: flex;
+  background: url("back.jpg") fixed;
 }
 
 .item-main-content:nth-child(1) {
   width: 18%;
   background: rgba(0, 49, 78, 0.93);
-  /*border-style: solid;*/
-  /*background: rgba(24, 98, 143, 0.8);*/
-  /*background: #4169E1;*/
 }
 
 .item-main-content:nth-child(2) {
   width: 12%;
-  background: #b3e1ee
+  background: rgba(179, 225, 238, 0.80);
 }
 
 .item-main-content:nth-child(3) {
   width: 70%;
-  background: #b3e1ee;
+  background: rgba(179, 225, 238, 0.80);
 }
