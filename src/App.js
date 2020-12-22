@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
-import PressConferences from "./components/PressConferences/PressConferences";
+import PressConference from "./components/PressConferences/PressConference";
 import Footer from "./components/Footer/Footer";
 import {Switch, Route, Redirect} from "react-router-dom";
 
@@ -19,7 +19,7 @@ function App() {
                     Блок рекламы
                 </div>
                 <div className="item-main-content">
-                    <PressConferences className="item-main-content"/>
+                    <PressConference className="item-main-content"/>
                 </div>
             </div>
 

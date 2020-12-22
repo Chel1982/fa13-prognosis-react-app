@@ -1,8 +1,8 @@
 import React from "react";
-import PressConferencesCss from "./PressConferences.module.css";
+import PressConferencesCss from "./PressConference.module.css";
 import Source from "../Source/Source";
 
-const PressConferences = () => {
+const PressConference = () => {
 
     let props = {
         videoSource: "http://old.fa13.info/video/match.php?video=8698",
@@ -301,4 +301,4 @@ const PressConferences = () => {
     );
 }
 
-export default PressConferences;
+export default PressConference;
