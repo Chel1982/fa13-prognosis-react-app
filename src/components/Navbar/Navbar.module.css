@@ -1,0 +1,51 @@
+.navbar {
+    /*background: rgba(24, 98, 143, 0.8);*/
+    display: flex;
+    flex-direction: column;
+}
+
+.item {
+    display: block;
+    line-height: 16px;
+    min-height: 16px;
+    padding: 16px 10px 16px 51px;
+    box-sizing: border-box;
+    color: #ffcb31;
+    border: none;
+    position: relative;
+    text-decoration: none;
+    font-size: medium;
+}
+
+.regulars {
+    display: block;
+    width: 32px;
+    height: 32px;
+    background: url(./images/menu-main-icons.png) 0 0 no-repeat;
+    float: left;
+    position: absolute;
+    left: 9px;
+    top: 8px;
+}
+
+.cup {
+    display: block;
+    width: 32px;
+    height: 32px;
+    float: left;
+    position: absolute;
+    left: 9px;
+    top: 8px;
+    background: url(./images/menu-main-icons.png) no-repeat 0 -64px;
+}
+
+.championsLeague {
+    display: block;
+    width: 32px;
+    height: 32px;
+    float: left;
+    position: absolute;
+    left: 9px;
+    top: 8px;
+    background: url(./images/menu-main-icons.png) no-repeat 0 -32px;
+}

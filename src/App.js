@@ -1,36 +1,43 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
+import './App.css';
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import PressConferences from "./components/PressConferences/PressConferences";
 import Footer from "./components/Footer/Footer";
+import {Switch, Route, Redirect} from "react-router-dom";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-}));
+function App() {
+    return (
+        <div>
+            <Header/>
 
-export default function CenteredGrid() {
-  const classes = useStyles();
+            <div className="main-content">
+                <div className="item-main-content">
+                    <Navbar className="item-main-content"/>
+                </div>
+                <div className="item-main-content">
+                    Блок рекламы
+                </div>
+                <div className="item-main-content">
+                    <PressConferences className="item-main-content"/>
+                </div>
+            </div>
 
-  return (
-      <div className={classes.root}>
-        <Grid container>
-          <Grid item xs={12}>
-            <Header />
-          </Grid>
-          <Grid item xs={4}>
-            <Navbar />
-          </Grid>
-          <Grid item xs={8}>
-            <PressConferences />
-          </Grid>
-          <Grid item xs={12}>
-            <Footer />
-          </Grid>
-        </Grid>
-      </div>
-  );
+            <Footer/>
+
+            <Switch>
+                <Route exact path='/'
+                       render={
+                           () => <Redirect to={"/"}/>
+                       }
+                />
+                <Route path='/regulars'
+                       render={() => <div>Чемпионаты стран</div>}
+                />
+            </Switch>
+        </div>
+    );
 }
+
+export default App;
+

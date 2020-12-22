@@ -1,5 +1,4 @@
 import React from "react";
-import Button from '@material-ui/core/Button';
 import HeaderCss from "./Header.module.css";
 
 const Header = () => {
@@ -11,17 +10,16 @@ const Header = () => {
                 Проект является добровольным творением fa13-сообщества, а конкретно менеджера
                 Эндрю из чемпионата Австрии, команды Вёргл.
             </div>
-            <div className={HeaderCss.login}>
-                <Button variant="contained" color="primary">
+            <div className={HeaderCss.loginDiv} >
+                <button className={HeaderCss.login}>
                     Вход
-                </Button>
+                </button>
             </div>
-            <div className={HeaderCss.register}>
-                <Button variant="contained" color="secondary">
+            <div className={HeaderCss.registerDiv}>
+                <button className={HeaderCss.register}>
                     Регистрация
-                </Button>
+                </button>
             </div>
-
         </header>
     );
 }

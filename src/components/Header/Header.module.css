@@ -1,6 +1,6 @@
 .headerMain {
-    background: rgba(0, 49, 78, 0.98);
     display: flex;
+    background: rgba(0, 49, 78, 0.98);
 }
 
 .divImage {
@@ -29,19 +29,43 @@
     color: white;
     margin-top: auto;
     margin-bottom: auto;
-    width: 64%;
+    width: 68%;
 }
 
 .login {
-    width: 10%;
+    background-color: #6A5ACD;
+    border: none;
+    color: white;
+    padding: 10px 20px;
     text-align: center;
-    margin-top: auto;
-    margin-bottom: auto;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .register {
-    width: 10%;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
     text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    cursor: pointer;
+}
+
+.loginDiv {
     margin-top: auto;
     margin-bottom: auto;
+    width: 6%;
+}
+
+.registerDiv {
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 10%;
 }
