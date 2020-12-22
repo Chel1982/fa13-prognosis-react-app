@@ -1,0 +1,13 @@
+.video {
+    width: 24px;
+    height: 24px;
+    background: url(./images/game-links-icons.png) 0 0 no-repeat;
+    margin-top: 17px;
+}
+
+.text {
+    width: 24px;
+    height: 24px;
+    background: url(./images/game-links-icons.png) -48px 0 no-repeat;
+    margin-top: 17px;
+}
