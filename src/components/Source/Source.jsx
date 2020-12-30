@@ -15,7 +15,7 @@ const Source = (props) => {
     }
     return (
         <div>
-            <a href={props.source} target="_blank">
+            <a href={props.source} target="_blank" rel="noopener noreferrer">
                 {res}
             </a>
         </div>
