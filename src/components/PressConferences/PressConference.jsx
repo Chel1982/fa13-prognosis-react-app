@@ -3,20 +3,6 @@ import PressConferencesCss from "./PressConference.module.css";
 import Source from "../Source/Source";
 
 const PressConference = (props) => {
-
-    // let props = {
-    //     videoSource: "http://old.fa13.info/video/match.php?video=8698",
-    //     textSource: "http://repository.fa13.info/site/pub/html/rAs/1721/C02-V32.htm",
-    //     videoType : "video",
-    //     textType : "text"
-    // };
-
-    // let res = {...props[0]};
-    console.log(props.game);
-
-    // let pressConferences = props.map(props => )
-
-
     return (
         <div>
             <div>
@@ -37,7 +23,7 @@ const PressConference = (props) => {
                         Смотреть комментарии
                     </button>
                 </div>
-                <span>{props.press_conference}</span>
+                <div dangerouslySetInnerHTML={{ __html: props.press_conference }} />
                 <div>
                     <button>
                         Комментировать
