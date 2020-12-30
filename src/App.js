@@ -2,9 +2,9 @@ import React from 'react';
 import './App.css';
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
-import PressConference from "./components/PressConferences/PressConference";
 import Footer from "./components/Footer/Footer";
 import {Switch, Route, Redirect} from "react-router-dom";
+import PressConferencesContainer from "./components/PressConferences/PressConferencesContainer";
 
 function App() {
     return (
@@ -19,7 +19,7 @@ function App() {
                     Блок рекламы
                 </div>
                 <div className="item-main-content">
-                    <PressConference className="item-main-content"/>
+                    <PressConferencesContainer className="item-main-content"/>
                 </div>
             </div>
 
