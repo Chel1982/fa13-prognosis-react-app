@@ -2,7 +2,9 @@ import {getLastPressConference} from "../api/PressConference";
 
 const GET_PRESS_CONF = "GET_PRESS_CONF";
 
-const PressConferenceReducer = (state = null, action) => {
+let initialState = {}
+
+const PressConferenceReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_PRESS_CONF :
             return {...action.data};

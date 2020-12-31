@@ -10,10 +10,11 @@ class PressConferencesContainer extends React.Component {
     }
 
     render() {
-        if (this.props.pressConferenceReducer) {
+        console.log(this.props.pressConferenceReducer.data)
+        if (this.props.pressConferenceReducer.data) {
             let result = [];
-            for (let key in this.props.pressConferenceReducer) {
-                result.push(<PressConference key={this.props.pressConferenceReducer[key].id} {...this.props.pressConferenceReducer[key]} />)
+            for (let key in this.props.pressConferenceReducer.data) {
+                result.push(<PressConference key={this.props.pressConferenceReducer.data[key].id} {...this.props.pressConferenceReducer.data[key]} />)
             }
             return (
                 <div>
