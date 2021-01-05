@@ -4,7 +4,7 @@ import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import {Switch, Route, Redirect} from "react-router-dom";
-import PressConferencesContainer from "./components/PressConferences/PressConferencesContainer";
+import PressConferencesContainer from "./components/PressConference/PressConferencesContainer";
 
 function App() {
     return (
