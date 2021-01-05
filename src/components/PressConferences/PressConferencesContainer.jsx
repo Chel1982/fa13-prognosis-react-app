@@ -11,6 +11,13 @@ class PressConferencesContainer extends React.Component {
         this.props.getLastPressConferencesThunk();
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        })
+    }
+
     render() {
         if (this.props.pressConferenceReducer.data) {
             let result = [];
