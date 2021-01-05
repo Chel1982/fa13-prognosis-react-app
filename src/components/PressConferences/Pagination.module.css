@@ -1,0 +1,28 @@
+.pagination {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: center;
+}
+
+.pagination a {
+    margin-left: 5px;
+    list-style-type: none;
+    text-decoration: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: underline;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.pagination a {
+    color: black;
+}
+
+.active a{
+    text-decoration: none;
+}

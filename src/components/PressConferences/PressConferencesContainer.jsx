@@ -1,7 +1,9 @@
 import React from "react";
 import {connect} from "react-redux";
 import PressConference from "./PressConference";
-import {getLastPressConferencesThunk} from "../../redux/PressConferenceReducer";
+import {getLastPressConferencesPaginationThunk, getLastPressConferencesThunk} from "../../redux/PressConferenceReducer";
+import {Pagination} from 'react-laravel-paginex';
+import PaginationCss from "./Pagination.module.css";
 
 class PressConferencesContainer extends React.Component {
 
@@ -10,15 +12,24 @@ class PressConferencesContainer extends React.Component {
     }
 
     render() {
-        console.log(this.props.pressConferenceReducer.data)
         if (this.props.pressConferenceReducer.data) {
             let result = [];
             for (let key in this.props.pressConferenceReducer.data) {
-                result.push(<PressConference key={this.props.pressConferenceReducer.data[key].id} {...this.props.pressConferenceReducer.data[key]} />)
+                result.push(<PressConference
+                    key={this.props.pressConferenceReducer.data[key].id} {...this.props.pressConferenceReducer.data[key]} />)
             }
             return (
                 <div>
                     {result.map(press => (press))}
+                    <Pagination
+                        changePage={this.props.getLastPressConferencesPaginationThunk}
+                        data={this.props.pressConferenceReducer}
+                        options={this.options}
+                        nextButtonText="Следующая"
+                        prevButtonText="Предыдущая"
+                        containerClass={PaginationCss.pagination}
+                        activeClass={PaginationCss.active}
+                    />
                 </div>
             )
         }
@@ -35,4 +46,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {getLastPressConferencesThunk})(PressConferencesContainer);
+export default connect(mapStateToProps, {
+    getLastPressConferencesThunk, getLastPressConferencesPaginationThunk
+})(PressConferencesContainer);
