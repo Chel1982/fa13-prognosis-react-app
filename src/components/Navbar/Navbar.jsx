@@ -9,7 +9,7 @@ const Navbar = () => {
                 <i className={NavBarCss.regulars}></i> Чемпионаты стран
             </NavLink>
 
-            <NavLink className={NavBarCss.item} to="/cup">
+            <NavLink className={NavBarCss.item} to="/cups">
                 <i className={NavBarCss.cup}></i> Кубки стран
             </NavLink>
 
