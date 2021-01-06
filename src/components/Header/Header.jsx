@@ -1,10 +1,11 @@
 import React from "react";
 import HeaderCss from "./Header.module.css";
+import {NavLink} from "react-router-dom";
 
 const Header = () => {
     return (
         <header className={HeaderCss.headerMain}>
-            <div className={HeaderCss.divImage}> </div>
+            <NavLink className={HeaderCss.divImage} to="/"> </NavLink>
             <div className={HeaderCss.season}> </div>
             <div className={HeaderCss.community}>
                 Проект является добровольным творением fa13-сообщества, а конкретно менеджера
