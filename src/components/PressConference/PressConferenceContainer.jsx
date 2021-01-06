@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import PressConference from "./PressConference";
 import {getLastPressConferencesPaginationThunk, getLastPressConferencesThunk} from "../../redux/PressConferenceReducer";
 import {Pagination} from 'react-laravel-paginex';
-import PaginationCss from "./Pagination.module.css";
+import PaginationCss from "../Pagination/Pagination.module.css";
 
 class PressConferencesContainer extends React.Component {
 
