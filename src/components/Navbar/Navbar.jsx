@@ -13,17 +13,23 @@ const Navbar = () => {
                 <i className={NavBarCss.cup}></i> Кубки стран
             </NavLink>
 
-            <NavLink className={NavBarCss.item} to="/champions-league">
+            {/*<NavLink className={NavBarCss.noAction} to="/champions-league">*/}
+            <div className={NavBarCss.noAction} title="В процессе разработки">
                 <i className={NavBarCss.championsLeague}></i> Лига Чемпионов
-            </NavLink>
+            </div>
+            {/*</NavLink>*/}
 
-            <NavLink className={NavBarCss.item} to="/associations-cup">
+            {/*<NavLink className={NavBarCss.noAction} to="/associations-cup">*/}
+            <div className={NavBarCss.noAction} title="В процессе разработки">
                 <i className={NavBarCss.cup}></i> Кубок Ассоциации
-            </NavLink>
+            </div>
+            {/*</NavLink>*/}
 
-            <NavLink className={NavBarCss.item} to="/federations-cup">
+            {/*<NavLink className={NavBarCss.noAction} to="/federations-cup">*/}
+            <div className={NavBarCss.noAction} title="В процессе разработки">
                 <i className={NavBarCss.cup}></i> Кубок Федераций
-            </NavLink>
+            </div>
+            {/*</NavLink>*/}
         </nav>
     );
 }
