@@ -1,9 +1,11 @@
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import pressConferenceReducer from "./PressConferenceReducer";
 import thunk from "redux-thunk";
+import tournamentListReducer from "./TournamentListReducer";
 
 let reducers = combineReducers({
-    pressConferenceReducer
+    pressConferenceReducer,
+    tournamentListReducer
 });
 
 const store = createStore(reducers, applyMiddleware(thunk));

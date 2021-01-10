@@ -3,8 +3,11 @@ import './App.css';
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
-import {Switch, Route, Redirect} from "react-router-dom";
+import {Route, Switch, Redirect} from "react-router-dom";
 import PressConferenceContainer from "./components/PressConference/PressConferenceContainer";
+import RegularContainer from "./components/Regular/RegularContainer";
+import CupContainer from "./components/Cup/CupContainer";
+import TournamentListContainer from "./components/TournamentList/TournamentListContainer";
 
 function App() {
     return (
@@ -19,22 +22,18 @@ function App() {
                     Блок рекламы
                 </div>
                 <div className="item-main-content">
-                    <PressConferenceContainer className="item-main-content"/>
+                <Switch>
+                    <Route exact path='/'
+                           render={
+                               () => <PressConferenceContainer className="item-main-content"/>
+                           }
+                    />
+                    <Route path='/regulars' render={() => <TournamentListContainer status='regular' />} />
+                    <Route path='/cups' render={() => <TournamentListContainer status='cup' />} />
+                </Switch>
                 </div>
             </div>
-
             <Footer/>
-
-            <Switch>
-                <Route exact path='/'
-                       render={
-                           () => <Redirect to={"/"}/>
-                       }
-                />
-                <Route path='/regulars'
-                       render={() => <div>Чемпионаты стран</div>}
-                />
-            </Switch>
         </div>
     );
 }
