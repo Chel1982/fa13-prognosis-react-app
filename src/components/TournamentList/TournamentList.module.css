@@ -1,0 +1,39 @@
+.main{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.odd{
+    padding: 3px 3px;
+    height: 1.5em;
+    background-color: #c1d5e0;;
+}
+
+.even {
+    padding: 3px 3px;
+    height: 1.5em;
+    background-color: #d4eaf7;;
+}
+
+.tournamentSource{
+    text-decoration: none;
+}
+
+.item {
+    padding: 3px 3px;
+    height: 1.5em;
+}
+
+.tournamentColumn {
+    margin-left: auto;
+    margin-right: auto;
+    flex-grow: 1;
+}
+
+.division{
+    padding: 9px 5px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #ffcb31;
+    background: rgba(24, 98, 143, 0.8);
+}
