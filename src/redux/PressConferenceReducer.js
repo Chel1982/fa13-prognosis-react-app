@@ -1,6 +1,7 @@
-import {getLastPressConferencePagination, getLastPressConference} from "../api/PressConference";
+import {getLastPressConferencePagination, getLastPressConference, getForIdLastPressConferences} from "../api/PressConference";
 
 const GET_LAST_ALL_PRESS_CONF = "GET_LAST_ALL_PRESS_CONF";
+const GET_LAST_REGULAR_PRESS_CONF = 'GET_LAST_REGULAR_PRESS_CONF';
 const COUNT_PRESS_CONF = 5;
 
 let initialState = {}
@@ -9,6 +10,8 @@ const PressConferenceReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_LAST_ALL_PRESS_CONF :
             return {lastAllPressConferences: action.data};
+        case GET_LAST_REGULAR_PRESS_CONF :
+            return {lastAllPressConferences: action.data};
         default:
             return state;
     }
@@ -16,22 +19,22 @@ const PressConferenceReducer = (state = initialState, action) => {
 
 const getPressAction = (data) => ({type: GET_LAST_ALL_PRESS_CONF, data})
 
-export const getLastAllPressConferencesThunk = () => {
+export const getForIdLastPressConferencesThunk = (tournamentId) => {
     return (dispatch) => {
-        getLastPressConference(COUNT_PRESS_CONF)
-            .then(response => {
-                dispatch(getPressAction(response.data))
-            })
-    }
-};
-
-export const getLastAllPressConferencesPaginationThunk =  (data) => {
-    return (dispatch) => {
-        getLastPressConferencePagination(data, COUNT_PRESS_CONF)
+        getForIdLastPressConferences(tournamentId, COUNT_PRESS_CONF)
             .then(response => {
                 dispatch(getPressAction(response.data))
             })
     }
 }
+
+export const getLastAllPressConferencesThunk = (data = '') => {
+    return (dispatch) => {
+        getLastPressConference(data, COUNT_PRESS_CONF)
+            .then(response => {
+                dispatch(getPressAction(response.data))
+            })
+    }
+};
 
 export default PressConferenceReducer;

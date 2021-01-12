@@ -1,13 +1,14 @@
 import React from "react";
 import {connect} from "react-redux";
 import PressConference from "./PressConference";
-import {getLastAllPressConferencesPaginationThunk, getLastAllPressConferencesThunk} from "../../redux/PressConferenceReducer";
+import {getLastAllPressConferencesThunk} from "../../redux/PressConferenceReducer";
 import {Pagination} from 'react-laravel-paginex';
 import PaginationCss from "../Pagination/Pagination.module.css";
 
 class PressConferencesContainer extends React.Component {
 
     componentDidMount() {
+        console.log(this.props)
         this.props.getLastAllPressConferencesThunk();
     }
 
@@ -20,16 +21,14 @@ class PressConferencesContainer extends React.Component {
 
     render() {
         if (this.props.pressConferenceReducer.lastAllPressConferences) {
-            let result = this.props.pressConferenceReducer.lastAllPressConferences.data.map(function (item, index, array){
-                 return <PressConference
-                     key={item.id}
-                     {...item} />
-                });
+            let result = this.props.pressConferenceReducer.lastAllPressConferences.data.map(
+                    item => (<PressConference key={item.id} {...item} />)
+                );
             return (
                 <div>
                     {result}
                     <Pagination
-                        changePage={this.props.getLastAllPressConferencesPaginationThunk}
+                        changePage={this.props.getLastAllPressConferencesThunk}
                         data={this.props.pressConferenceReducer.lastAllPressConferences}
                         options={this.options}
                         nextButtonText="Следующая"
@@ -54,5 +53,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {
-    getLastAllPressConferencesThunk, getLastAllPressConferencesPaginationThunk
+    getLastAllPressConferencesThunk
 })(PressConferencesContainer);
