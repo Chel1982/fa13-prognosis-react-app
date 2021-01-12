@@ -158,7 +158,6 @@ class TournamentListContainer extends React.Component {
                     })
                     return (
                         <div>
-
                             {cupList}
                         </div>
                     )
