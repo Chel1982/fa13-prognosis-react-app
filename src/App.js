@@ -3,10 +3,8 @@ import './App.css';
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
-import {Route, Switch, Redirect} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import PressConferenceContainer from "./components/PressConference/PressConferenceContainer";
-import RegularContainer from "./components/Regular/RegularContainer";
-import CupContainer from "./components/Cup/CupContainer";
 import TournamentListContainer from "./components/TournamentList/TournamentListContainer";
 
 function App() {
