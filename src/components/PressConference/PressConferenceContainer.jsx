@@ -20,15 +20,14 @@ class PressConferencesContainer extends React.Component {
 
     render() {
         if (this.props.pressConferenceReducer.lastAllPressConferences) {
-            let result = [];
-            for (let key in this.props.pressConferenceReducer.lastAllPressConferences.data) {
-                result.push(<PressConference
-                    key={this.props.pressConferenceReducer.lastAllPressConferences.data[key].id}
-                    {...this.props.pressConferenceReducer.lastAllPressConferences.data[key]} />)
-            }
+            let result = this.props.pressConferenceReducer.lastAllPressConferences.data.map(function (item, index, array){
+                 return <PressConference
+                     key={item.id}
+                     {...item} />
+                });
             return (
                 <div>
-                    {result.map(press => (press))}
+                    {result}
                     <Pagination
                         changePage={this.props.getLastAllPressConferencesPaginationThunk}
                         data={this.props.pressConferenceReducer.lastAllPressConferences}
