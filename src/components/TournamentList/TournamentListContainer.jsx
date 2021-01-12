@@ -139,7 +139,6 @@ class TournamentListContainer extends React.Component {
                 return (
                     <div></div>
                 )
-                break;
             case 'cup' :
                 if (this.props.tournamentListReducer.cupList) {
                     let cupList = this.props.tournamentListReducer.cupList.map(function (item, index, array) {
@@ -167,7 +166,6 @@ class TournamentListContainer extends React.Component {
                 return (
                     <div></div>
                 )
-                break;
             default:
                 return (
                     <div></div>
