@@ -63,7 +63,7 @@ class TournamentListContainer extends React.Component {
 
                         if (thirdStep) {
                             thirdDivision.push(
-                                <div key={key * 100}>
+                                <div>
 
                                 </div>
                             );
@@ -105,13 +105,13 @@ class TournamentListContainer extends React.Component {
                         if (index % 2 === 0) {
                             let addPropsTo = {...item.props, typeClass: 'odd'}
                             return <TournamentList
-                                key={addPropsTo.id}
+                                key={index + 1000}
                                 {...addPropsTo}
                             />
                         }
                         let addPropsTo = {...item.props, typeClass: 'even'}
                         return <TournamentList
-                            key={addPropsTo.id}
+                            key={index + 1000}
                             {...addPropsTo}
                         />
                     })
@@ -158,6 +158,7 @@ class TournamentListContainer extends React.Component {
                     })
                     return (
                         <div>
+                            <div className={TournamentListCss.division}>Кубки стран</div>
                             {cupList}
                         </div>
                     )
