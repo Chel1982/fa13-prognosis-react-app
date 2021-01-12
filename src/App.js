@@ -30,6 +30,8 @@ function App() {
                     />
                     <Route path='/regulars' render={() => <TournamentListContainer status='regular' />} />
                     <Route path='/cups' render={() => <TournamentListContainer status='cup' />} />
+                    <Route path='/press-conferences/tournament/:id'
+                           render={() => <PressConferenceContainer className="item-main-content"/>}/>
                 </Switch>
                 </div>
             </div>
