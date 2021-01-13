@@ -8,7 +8,7 @@ import PaginationCss from "../Pagination/Pagination.module.css";
 class PressConferencesContainer extends React.Component {
 
     componentDidMount() {
-        console.log(this.props)
+        console.log(this.props.type)
         this.props.getLastAllPressConferencesThunk();
     }
 
@@ -22,7 +22,7 @@ class PressConferencesContainer extends React.Component {
     render() {
         if (this.props.pressConferenceReducer.lastAllPressConferences) {
             let result = this.props.pressConferenceReducer.lastAllPressConferences.data.map(
-                    item => (<PressConference key={item.id} {...item} />)
+                    item => (<PressConference key={item.id.toString()} {...item} />)
                 );
             return (
                 <div>
