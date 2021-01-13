@@ -19,8 +19,37 @@ class TournamentListContainer extends React.Component {
         switch (this.props.status) {
             case 'regular' :
                 if(this.props.tournamentListReducer.regularList) {
-                    let firstDivision = [];
-                    let secondDivision = [];
+                    let resultFirstIncrement = 0;
+                    const resultFirstDivision = this.props.tournamentListReducer.regularList.map(
+                        item => {
+                            if(!item.name.includes('2')
+                                && !item.name.includes('3')) {
+
+                                    let addPropsTo = {...item,
+                                        typeClass: resultFirstIncrement % 2 === 0 ? 'odd' : 'even'};
+                                    resultFirstIncrement++;
+                                    return <TournamentList
+                                        key={addPropsTo.id}
+                                        {...addPropsTo}
+                                    />
+
+                            }
+                    })
+
+                    let resultSecondIncrement = 0;
+                    const resultSecondDivision = this.props.tournamentListReducer.regularList.map(
+                        item => {
+                            if(item.name.includes('2')) {
+                                let addPropsTo = {...item, typeClass: resultSecondIncrement % 2 === 0 ? 'odd' : 'even'}
+                                resultSecondIncrement++;
+                                return <TournamentList
+                                    key={addPropsTo.id}
+                                    {...addPropsTo}
+                                />
+                            }
+                        }
+                    )
+
                     let thirdDivision = [];
                     let thirdStep = false;
 
@@ -28,25 +57,6 @@ class TournamentListContainer extends React.Component {
 
                         if (this.props.tournamentListReducer.regularList[key].name.includes('2')) {
                             thirdStep = true;
-                        }
-
-                        if (!this.props.tournamentListReducer.regularList[key].name.includes('2')
-                            && !this.props.tournamentListReducer.regularList[key].name.includes('3')) {
-                            firstDivision.push(
-                                <TournamentList
-                                    key={this.props.tournamentListReducer.regularList[key].id}
-                                    {...this.props.tournamentListReducer.regularList[key]}
-                                />
-                            )
-                        }
-
-                        if (this.props.tournamentListReducer.regularList[key].name.includes('2')) {
-                            secondDivision.push(
-                                <TournamentList
-                                    key={this.props.tournamentListReducer.regularList[key].id}
-                                    {...this.props.tournamentListReducer.regularList[key]}
-                                />
-                            )
                         }
 
                         //вырезаем последний элемент массива, потом что он добавляется в любом случае при Австрии-2
@@ -63,53 +73,14 @@ class TournamentListContainer extends React.Component {
 
                         if (thirdStep) {
                             thirdDivision.push(
-                                <div>
-
-                                </div>
+                                <div></div>
                             );
                             thirdStep = false;
                         }
                     }
 
-                    const resultFirstDivision = firstDivision.map(function (item, index, array) {
-                        if (index % 2 === 0) {
-                            let addPropsTo = {...item.props, typeClass: 'odd'}
-                            return <TournamentList
-                                key={addPropsTo.id}
-                                {...addPropsTo}
-                            />
-                        }
-                        let addPropsTo = {...item.props, typeClass: 'even'}
-                        return <TournamentList
-                            key={addPropsTo.id}
-                            {...addPropsTo}
-                        />
-                    })
-
-                    const resultSecondDivision = secondDivision.map(function (item, index, array) {
-                        if (index % 2 === 0) {
-                            let addPropsTo = {...item.props, typeClass: 'odd'}
-                            return <TournamentList
-                                key={addPropsTo.id}
-                                {...addPropsTo}
-                            />
-                        }
-                        let addPropsTo = {...item.props, typeClass: 'even'}
-                        return <TournamentList
-                            key={addPropsTo.id}
-                            {...addPropsTo}
-                        />
-                    })
-
                     const resultThirdDivision = thirdDivision.map(function (item, index, array) {
-                        if (index % 2 === 0) {
-                            let addPropsTo = {...item.props, typeClass: 'odd'}
-                            return <TournamentList
-                                key={index + 1000}
-                                {...addPropsTo}
-                            />
-                        }
-                        let addPropsTo = {...item.props, typeClass: 'even'}
+                        let addPropsTo = {...item.props, typeClass: index % 2 === 0 ? 'odd' : 'even'}
                         return <TournamentList
                             key={index + 1000}
                             {...addPropsTo}
