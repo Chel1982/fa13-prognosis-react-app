@@ -23,13 +23,18 @@ function App() {
                 <Switch>
                     <Route exact path='/'
                            render={
-                               () => <PressConferenceContainer className="item-main-content"/>
+                               () => <PressConferenceContainer type='all' className="item-main-content"/>
                            }
                     />
                     <Route path='/regulars' render={() => <TournamentListContainer status='regular' />} />
                     <Route path='/cups' render={() => <TournamentListContainer status='cup' />} />
                     <Route path='/press-conferences/tournament/:id'
-                           render={() => <PressConferenceContainer className="item-main-content"/>}/>
+                           render={() => <PressConferenceContainer
+                               type='tournament'
+                               className="item-main-content"/>
+                           }/>
+                    <Route path='*'
+                           render={() => <div>404 NOT FOUND</div>}/>
                 </Switch>
                 </div>
             </div>
