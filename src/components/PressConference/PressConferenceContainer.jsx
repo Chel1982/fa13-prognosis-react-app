@@ -38,6 +38,7 @@ class PressConferencesContainer extends React.Component {
             behavior: "smooth"
         })
     }
+
     params = () => {
         return {
             tournament_id : this.props.match.params.id
