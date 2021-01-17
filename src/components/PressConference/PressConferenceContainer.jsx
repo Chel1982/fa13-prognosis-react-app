@@ -21,6 +21,18 @@ class PressConferencesContainer extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.type !== prevProps.type) {
+            switch (this.props.type) {
+                case 'all' : this.props.getLastAllPressConferencesThunk();
+                    break;
+                case 'tournament' : this.props.getForIdLastPressConferencesThunk(
+                    null,
+                    this.props.match.params.id
+                );
+                    break;
+                default: {}
+            }
+        }
         window.scrollTo({
             top: 0,
             behavior: "smooth"
