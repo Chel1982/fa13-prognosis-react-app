@@ -8,7 +8,6 @@ import {withRouter} from "react-router";
 
 class PressConferencesContainer extends React.Component {
     componentDidMount() {
-        this.setState({tournament_id: this.props.match.params.id});
         switch (this.props.type) {
             case 'all' : this.props.getLastAllPressConferencesThunk();
                 break;
