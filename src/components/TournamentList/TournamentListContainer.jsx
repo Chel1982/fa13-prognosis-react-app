@@ -153,4 +153,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {getTournamentListThunk})(TournamentListContainer);
-
