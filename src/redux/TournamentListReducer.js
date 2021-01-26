@@ -1,4 +1,4 @@
-import {getTournamentList} from "../api/PressConference";
+import {getTournamentList} from "../api/TournamentList";
 
 const GET_REGULAR_LIST = 'GET_REGULAR_LIST';
 const GET_CUP_LIST = 'GET_CUP_LIST';
