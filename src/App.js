@@ -1,16 +1,18 @@
 import React from 'react';
 import './App.css';
-import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import {Route, Switch} from "react-router-dom";
 import PressConferenceContainer from "./components/PressConference/PressConferenceContainer";
 import TournamentListContainer from "./components/TournamentList/TournamentListContainer";
+import LoginContainer from "./components/Login/LoginContainer";
+import RegisterContainer from "./components/Register/RegisterContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 function App() {
     return (
         <div>
-            <Header/>
+            <HeaderContainer/>
 
             <div className="main-content">
                 <div className="item-main-content">
@@ -33,6 +35,8 @@ function App() {
                                type='tournament'
                                className="item-main-content"/>
                            }/>
+                    <Route path='/login' render={() => <LoginContainer />} />
+                    <Route path='/register' render={() => <RegisterContainer />} />
                     <Route path='*'
                            render={() => <div>404 NOT FOUND</div>}/>
                 </Switch>

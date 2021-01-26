@@ -2,27 +2,50 @@ import React from "react";
 import HeaderCss from "./Header.module.css";
 import {NavLink} from "react-router-dom";
 
-const Header = () => {
+const Header = (props) => {
+    if (props.auth.isAuth) {
+        return (
+            <header className={HeaderCss.headerMain}>
+                <NavLink className={HeaderCss.divImage} to="/"> </NavLink>
+                <div className={HeaderCss.season}> </div>
+                <div className={HeaderCss.community}>
+                    Проект является добровольным творением fa13-сообщества. Если у кого-нибудь
+                    возникнет желание помочь проекты, реквизиты снизу.
+                </div>
+                <div>
+                    {props.auth.name}
+                </div>
+                <div>
+                    <NavLink to="/" onClick={() => {
+                        localStorage.clear();
+                    }}>
+                        Выход
+                    </NavLink>
+            </div>
+            </header>
+            )
+
+    }
     return (
         <header className={HeaderCss.headerMain}>
             <NavLink className={HeaderCss.divImage} to="/"> </NavLink>
             <div className={HeaderCss.season}> </div>
             <div className={HeaderCss.community}>
-                Проект является добровольным творением fa13-сообщества, а конкретно менеджера
-                Эндрю из чемпионата Австрии, команды Вёргл.
+                Проект является добровольным творением fa13-сообщества. Если у кого-нибудь
+                возникнет желание помочь проекты, реквизиты снизу.
             </div>
             <div className={HeaderCss.loginDiv} >
-                <button className={HeaderCss.login}>
+                <NavLink to="/login" className={HeaderCss.login}>
                     Вход
-                </button>
+                </NavLink>
             </div>
             <div className={HeaderCss.registerDiv}>
-                <button className={HeaderCss.register}>
+                <NavLink to="/register" className={HeaderCss.register}>
                     Регистрация
-                </button>
+                </NavLink>
             </div>
         </header>
-    );
+    )
 }
 
 export default Header;

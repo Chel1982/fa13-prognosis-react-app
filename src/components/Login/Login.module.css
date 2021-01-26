@@ -1,0 +1,20 @@
+.main {
+    height: 73.2vh;
+}
+
+.button {
+    display: inline-block;
+    box-sizing: border-box;
+    font-size: 12px !important;
+    line-height: 12px;
+    font-weight: 700;
+    text-align: center;
+    padding: 15px 20px;
+    margin: 1px;
+    color: #fff;
+    border: 1px #f5c532 solid;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: #04314c;
+    transition: background-color 0.3s;
+}

@@ -29,7 +29,7 @@
     color: white;
     margin-top: auto;
     margin-bottom: auto;
-    width: 68%;
+    width: 65%;
 }
 
 .login {
@@ -61,6 +61,7 @@
 .loginDiv {
     margin-top: auto;
     margin-bottom: auto;
+    margin-right: 5px;
     width: 6%;
 }
 

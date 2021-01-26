@@ -1,18 +1,18 @@
 import axios from "axios";
 
-const MAIN_URL = 'http://api.fa13-prognosis.loc/api/v1/';
+const VERSION_V1 = '/v1/';
 
 export const getLastPressConference = async (data = '', countPressConf) => {
     if (data) {
-        return await axios.get(MAIN_URL + 'press-conferences/'
+        return await axios.get(VERSION_V1 + 'press-conferences/'
             + countPressConf + '?page=' + data.page);
     }
-    return await axios.get(MAIN_URL + 'press-conferences/' + countPressConf);
+    return await axios.get(VERSION_V1 + 'press-conferences/' + countPressConf);
 }
 
 export const getForIdLastPressConferences = async (data = '', tournamentId, countPressConf) => {
     if (data) {
-        return await axios.get(MAIN_URL
+        return await axios.get(VERSION_V1
             + 'press-conferences/tournament_id/'
             + data.tournament_id
             + '/count/'
@@ -20,7 +20,7 @@ export const getForIdLastPressConferences = async (data = '', tournamentId, coun
             + '?page='
             + data.page);
     }
-    return await axios.get(MAIN_URL
+    return await axios.get(VERSION_V1
         + 'press-conferences/tournament_id/'
         + tournamentId
         + '/count/'
