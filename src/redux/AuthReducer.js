@@ -1,4 +1,4 @@
-import {auth, login, logout} from "../api/Auth";
+import {auth, login, logout, register} from "../api/Auth";
 
 const SET_USER_DATA = "SET_USER_DATA";
 const LOGOUT_USER = "LOGOUT_USER";
@@ -16,7 +16,6 @@ const AuthReducer = (state = initialState, action) => {
             return {
                     ...action.data,
                     isAuth:true
-
             };
         case LOGOUT_USER :
             return {
@@ -46,13 +45,15 @@ export const getAuthDataThunk = () => {
     }
 }
 
-export const setLoginThunk = (data) => {
+export const loginThunk = (data) => {
     return (dispatch) => {
         login(data)
             .then(
                 response => {
-                    localStorage.setItem('token', response.data.token);
-                    dispatch(setUserDataAction(response.data.user))
+                    if (response.status === 200) {
+                        localStorage.setItem('token', response.data.token);
+                        dispatch(setUserDataAction(response.data.user))
+                    }
                 }
             )
             .catch(
@@ -73,5 +74,24 @@ export const logoutThunk = () => {
                         dispatch(logoutUserAction());
                     }
             })
+    }
+}
+
+export const registerThunk = (data) => {
+    return (dispatch) => {
+        register(data)
+            .then(
+                response => {
+                    if (response.status === 200) {
+                        localStorage.setItem('token', response.data.token);
+                        dispatch(setUserDataAction(response.data.user))
+                    }
+                }
+            )
+            .catch(
+                error => {
+                    console.log(error.message)
+                }
+            )
     }
 }

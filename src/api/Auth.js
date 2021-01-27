@@ -12,6 +12,19 @@ export const login = (data) => {
         });
 }
 
+export const register = async (data) => {
+    return axios.post(
+        VERSION_V1
+        + 'register',
+        {
+            name: data.name,
+            email: data.email,
+            password: data.password,
+            password_confirmation : data.password_confirmation
+        }
+    )
+}
+
 export const logout = async () => {
     let config = {
         headers : {

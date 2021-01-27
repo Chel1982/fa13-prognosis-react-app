@@ -1,28 +1,27 @@
 import React from "react";
 import LoginCss from "../Login/Login.module.css";
-import {Field, reduxForm} from "redux-form";
-import {email, maxLength, minLength, renderField, required} from "../utils/validations/Validators";
+import {Field} from "redux-form";
+import {
+    email,
+    matchPassword,
+    maxLength,
+    minLength,
+    renderField,
+    required
+} from "../utils/validations/Validators";
+import {Redirect} from "react-router-dom";
 
 const MIN_LENGTH = 3;
 const MAX_LENGTH = 15;
-
-const Register = () => {
-    const onSubmit = (formData) => {
-        // console.log(formData)
-    }
-
-    return (
-        <div className={LoginCss.main}>
-            <h1>Регистрация в системе</h1>
-            <RegisterReduxForm onSubmit={onSubmit} />
-        </div>
-    )
-}
 
 let minLengthPass = minLength(MIN_LENGTH);
 let maxLengthPass = maxLength(MAX_LENGTH);
 
 const RegisterForm = (props) => {
+    if (props.auth.authReducer.isAuth) {
+        return <Redirect to={"/"} />
+    }
+
     return (
         <form onSubmit={props.handleSubmit}>
             <Field
@@ -58,7 +57,7 @@ const RegisterForm = (props) => {
                 type="password"
                 label="Подтверждение пароля"
                 component={renderField}
-                validate={[required, minLengthPass, maxLengthPass]}
+                validate={[required, minLengthPass, maxLengthPass, matchPassword]}
             />
 
             <div>
@@ -68,6 +67,6 @@ const RegisterForm = (props) => {
     )
 }
 
-const RegisterReduxForm = reduxForm({form: 'register'})(RegisterForm)
 
-export default Register;
+
+export default RegisterForm;

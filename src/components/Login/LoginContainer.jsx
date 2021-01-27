@@ -3,8 +3,7 @@ import {connect} from "react-redux";
 import LoginForm from "./LoginForm";
 import LoginCss from "./Login.module.css";
 import {reduxForm} from "redux-form";
-import {getAuthDataThunk, setLoginThunk} from "../../redux/AuthReducer";
-import {Redirect} from "react-router-dom";
+import {getAuthDataThunk, loginThunk} from "../../redux/AuthReducer";
 
 class LoginContainer extends React.Component {
     constructor(props) {
@@ -13,7 +12,7 @@ class LoginContainer extends React.Component {
     }
 
     handleSubmit(event) {
-        this.props.setLoginThunk(event);
+        this.props.loginThunk(event);
     }
 
     render() {
@@ -35,5 +34,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {
-    getAuthDataThunk, setLoginThunk
+    getAuthDataThunk, loginThunk
 })(LoginContainer);

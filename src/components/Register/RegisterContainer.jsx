@@ -1,15 +1,36 @@
 import React from "react";
 import {connect} from "react-redux";
-import Register from "./Register";
+import RegisterForm from "./RegisterForm";
+import {reduxForm} from "redux-form";
+import LoginCss from "../Login/Login.module.css";
+import {registerThunk} from "../../redux/AuthReducer";
 
 class RegisterContainer extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleSubmit(event) {
+        this.props.registerThunk(event);
+    }
+
     render() {
         return(
-            <div>
-                <Register/>
+            <div className={LoginCss.main}>
+                <h1>Регистрация в системе</h1>
+                <RegisterReduxForm auth={this.props} onSubmit={this.handleSubmit} />
             </div>
         )
     }
 }
 
-export default connect(null, null)(RegisterContainer);
+const mapStateToProps = (state) => {
+    return {
+        ...state
+    }
+}
+
+const RegisterReduxForm = reduxForm({form: 'register'})(RegisterForm)
+
+export default connect(mapStateToProps, {registerThunk})(RegisterContainer);
