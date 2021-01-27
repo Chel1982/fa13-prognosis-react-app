@@ -16,12 +16,11 @@ const Header = (props) => {
                     {props.auth.name}
                 </div>
                 <div>
-                    <NavLink to="/" onClick={() => {
-                        localStorage.clear();
-                    }}>
+                    <button
+                        onClick={props.logoutThunk}>
                         Выход
-                    </NavLink>
-            </div>
+                    </button>
+                </div>
             </header>
             )
 

@@ -1,6 +1,7 @@
-import {auth, login} from "../api/Auth";
+import {auth, login, logout} from "../api/Auth";
 
 const SET_USER_DATA = "SET_USER_DATA";
+const LOGOUT_USER = "LOGOUT_USER";
 
 let initialState = {
     id : null,
@@ -17,6 +18,10 @@ const AuthReducer = (state = initialState, action) => {
                     isAuth:true
 
             };
+        case LOGOUT_USER :
+            return {
+                    ...initialState
+            }
         default:
             return state;
     }
@@ -25,6 +30,7 @@ const AuthReducer = (state = initialState, action) => {
 export default AuthReducer;
 
 const setUserDataAction = (data) => ({type: SET_USER_DATA, data});
+const logoutUserAction = () => ({type: LOGOUT_USER})
 
 export const getAuthDataThunk = () => {
     return (dispatch) => {
@@ -54,5 +60,18 @@ export const setLoginThunk = (data) => {
                     console.log(error.message)
                 }
             )
+    }
+}
+
+export const logoutThunk = () => {
+    return (dispatch) => {
+        logout()
+            .then(
+                response => {
+                    if (response.status === 200) {
+                        localStorage.removeItem('token');
+                        dispatch(logoutUserAction());
+                    }
+            })
     }
 }

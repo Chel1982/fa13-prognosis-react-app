@@ -9,7 +9,11 @@ import store from "./redux/ReduxStore";
 import axios from "axios";
 
 axios.defaults.baseURL = 'http://api.fa13-prognosis.loc/api';
-axios.defaults.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+if (localStorage.getItem('token')) {
+    axios.defaults.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+}
+// axios.defaults.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+axios.defaults.headers['Accept'] = 'application/json';
 
 ReactDOM.render(
     <React.StrictMode>

@@ -13,14 +13,21 @@ export const login = (data) => {
 }
 
 export const logout = async () => {
-    return await axios.get(
+    let config = {
+        headers : {
+            Authorization : 'Bearer ' + localStorage.getItem('token')
+        }
+    }
+    return await axios.delete(
         VERSION_V1
-        + 'logout'
+        + 'logout',
+        config
     )
 }
 
 export const auth = async () => {
     return await axios.get(
-        '/user'
+        VERSION_V1
+        + 'user'
     )
 }
