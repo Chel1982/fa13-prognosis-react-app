@@ -58,6 +58,10 @@
     cursor: pointer;
 }
 
+.nameUser {
+    color: #ffcb31;
+}
+
 .loginDiv {
     margin-top: auto;
     margin-bottom: auto;

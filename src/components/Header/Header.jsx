@@ -12,11 +12,14 @@ const Header = (props) => {
                     Проект является добровольным творением fa13-сообщества. Если у кого-нибудь
                     возникнет желание помочь проекты, реквизиты снизу.
                 </div>
-                <div>
-                    {props.auth.name}
+                <div className={HeaderCss.loginDiv}>
+                    <span className={HeaderCss.nameUser}>
+                        {props.auth.name}
+                    </span>
                 </div>
-                <div>
+                <div className={HeaderCss.registerDiv}>
                     <button
+                        className={HeaderCss.register}
                         onClick={props.logoutThunk}>
                         Выход
                     </button>
