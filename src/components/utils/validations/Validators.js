@@ -14,6 +14,11 @@ export const minLength = min => value =>
 export const maxLength = max => value =>
     value && value.length > max ? `Ко-во символов должно быть менее, чем  ${max}` : undefined
 
+export const matchPassword = (value, allValues) =>
+    value !== allValues.password
+        ? 'Пароль и подтвержедние пароля не одинаковы'
+        : undefined;
+
 export const renderField = ({
                          input,
                          label,
