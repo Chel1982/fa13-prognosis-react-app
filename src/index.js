@@ -12,17 +12,16 @@ axios.defaults.baseURL = 'http://api.fa13-prognosis.loc/api';
 if (localStorage.getItem('token')) {
     axios.defaults.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token');
 }
-// axios.defaults.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token');
 axios.defaults.headers['Accept'] = 'application/json';
 
 ReactDOM.render(
-    <React.StrictMode>
+
         <BrowserRouter>
             <Provider store={store}>
                 <App/>
             </Provider>
-        </BrowserRouter>
-    </React.StrictMode>,
+        </BrowserRouter>,
+
     document.getElementById('root')
 );
 
