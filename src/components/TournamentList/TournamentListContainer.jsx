@@ -34,6 +34,7 @@ class TournamentListContainer extends React.Component {
                                     />
 
                             }
+                            return null;
                     })
 
                     let resultSecondIncrement = 0;
@@ -47,6 +48,7 @@ class TournamentListContainer extends React.Component {
                                     {...addPropsTo}
                                 />
                             }
+                            return null;
                         }
                     )
 
