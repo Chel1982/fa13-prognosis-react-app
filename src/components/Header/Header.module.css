@@ -33,22 +33,21 @@
 }
 
 .login {
-    color: rgb(245,245,245);
+    width: 5.5em;
     display: inline-block;
-    cursor: pointer;
     font-size: 80%;
     color: rgba(255,255,255,.9);
-    text-shadow: 0 -1px rgba(0,0,0,.1);
+    text-shadow: #2e7ebd 0 1px 2px;
     text-decoration: none;
     text-align: center;
     line-height: 1.1;
     white-space: pre-line;
-    padding: 10px 20px;
+    padding: .7em 0;
     border: 1px solid;
-    border-color: #794aa8 #613092 #613092 #794aa8;
-    border-radius: 3px;
+    border-color: #9e6bd1 #613092 #613092 #9e6bd1;
+    border-radius: 6px;
     outline: none;
-    background: #613092 linear-gradient(#794aa8, #613092);
+    background: #613092 linear-gradient(#9e6bd1, #613092);
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
@@ -66,7 +65,7 @@
     padding: 10px 20px;
     border: 1px solid;
     border-color: #82d18d #0c9c0d #0c9c0d #82d18d;
-    border-radius: 3px;
+    border-radius: 6px;
     outline: none;
     background: #0c9c0d linear-gradient(#82d18d, #0c9c0d);
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
