@@ -4,10 +4,10 @@ const VERSION_V1 = '/v1/';
 
 export const getLastPressConference = async (data = '', countPressConf) => {
     if (data) {
-        return await axios.get(VERSION_V1 + 'press-conferences/'
+        return await axios.get(VERSION_V1 + 'press-conferences/count/'
             + countPressConf + '?page=' + data.page);
     }
-    return await axios.get(VERSION_V1 + 'press-conferences/' + countPressConf);
+    return await axios.get(VERSION_V1 + 'press-conferences/count/' + countPressConf);
 }
 
 export const getForIdLastPressConferences = async (data = '', tournamentId, countPressConf) => {
