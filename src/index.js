@@ -15,7 +15,6 @@ if (localStorage.getItem('token')) {
 axios.defaults.headers['Accept'] = 'application/json';
 
 ReactDOM.render(
-
         <BrowserRouter>
             <Provider store={store}>
                 <App/>
