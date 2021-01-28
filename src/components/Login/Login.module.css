@@ -4,18 +4,19 @@
 
 .button {
     display: inline-block;
-    box-sizing: border-box;
-    font-size: 12px;
-    line-height: 12px;
-    font-weight: 700;
+    width: 15em;
+    font-size: 80%;
+    color: rgba(255,255,255,.9);
+    text-shadow: #2e7ebd 0 1px 2px;
+    text-decoration: none;
     text-align: center;
-    padding: 15px 20px;
-    margin: 1px;
-    color: #fff;
-    border: 1px #f5c532 solid;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    background: #04314c;
-    transition: background-color 0.3s;
-    cursor: pointer;
+    line-height: 1.1;
+    white-space: pre-line;
+    padding: .7em 0;
+    border: 1px solid;
+    border-color: #60a3d8 #2970a9 #2970a9 #60a3d8;
+    border-radius: 6px;
+    outline: none;
+    background: #60a3d8 linear-gradient(#89bbe2, #60a3d8 50%, #378bce);
+    box-shadow: inset rgba(255,255,255,.5) 1px 1px;
 }
