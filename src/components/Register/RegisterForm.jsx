@@ -22,7 +22,10 @@ const RegisterForm = (props) => {
         return <Redirect to={"/"} />
     }
 
-    return (
+    let nameError = props.auth.authReducer.errors.name ?? props.auth.authReducer.errors.name;
+    let emailError = props.auth.authReducer.errors.email ?? props.auth.authReducer.errors.email;
+
+     return (
         <form onSubmit={props.handleSubmit}>
             <Field
                 placeholder="Имя"
@@ -32,15 +35,21 @@ const RegisterForm = (props) => {
                 component={renderField}
                 validate={[required, minLengthPass, maxLengthPass]}
             />
-
+            <div>
+                { nameError }
+            </div>
             <Field
-                placeholder="Email"
+                placeholder="E-Mail"
                 name="email"
                 type="email"
-                label="Email"
+                label="E-Mail"
                 component={renderField}
                 validate={[required, email]}
             />
+
+            <div>
+                { emailError }
+            </div>
 
             <Field
                 placeholder="Пароль"

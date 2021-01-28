@@ -16,7 +16,7 @@ export const maxLength = max => value =>
 
 export const matchPassword = (value, allValues) =>
     value !== allValues.password
-        ? 'Пароль и подтвержедние пароля не одинаковы'
+        ? 'Пароль и подтвержедние пароля должны быть одинаковы'
         : undefined;
 
 export const renderField = ({

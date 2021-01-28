@@ -13,7 +13,7 @@ export const login = (data) => {
 }
 
 export const register = async (data) => {
-    return axios.post(
+    return await axios.post(
         VERSION_V1
         + 'register',
         {

@@ -2,12 +2,14 @@ import {auth, login, logout, register} from "../api/Auth";
 
 const SET_USER_DATA = "SET_USER_DATA";
 const LOGOUT_USER = "LOGOUT_USER";
+const SET_ERROR_DATA = "SET_ERROR_DATA";
 
 let initialState = {
     id : null,
     email : null,
     name : null,
-    isAuth : false
+    isAuth : false,
+    errors : {}
 };
 
 const AuthReducer = (state = initialState, action) => {
@@ -15,11 +17,17 @@ const AuthReducer = (state = initialState, action) => {
         case SET_USER_DATA :
             return {
                     ...action.data,
-                    isAuth:true
+                    isAuth : true
             };
         case LOGOUT_USER :
             return {
                     ...initialState
+            }
+        case SET_ERROR_DATA :
+            return {
+                errors : {
+                    ...action.data
+                }
             }
         default:
             return state;
@@ -29,7 +37,8 @@ const AuthReducer = (state = initialState, action) => {
 export default AuthReducer;
 
 const setUserDataAction = (data) => ({type: SET_USER_DATA, data});
-const logoutUserAction = () => ({type: LOGOUT_USER})
+const logoutUserAction = () => ({type: LOGOUT_USER});
+const setErrorDataAction = (data) => ({type: SET_ERROR_DATA, data})
 
 export const getAuthDataThunk = () => {
     return (dispatch) => {
@@ -54,11 +63,11 @@ export const loginThunk = (data) => {
                         localStorage.setItem('token', response.data.token);
                         dispatch(setUserDataAction(response.data.user))
                     }
-                }
+                },
             )
             .catch(
                 error => {
-                    console.log(error.message)
+                     dispatch(setErrorDataAction(error.response.data.errors));
                 }
             )
     }
@@ -90,7 +99,7 @@ export const registerThunk = (data) => {
             )
             .catch(
                 error => {
-                    console.log(error.message)
+                    dispatch(setErrorDataAction(error.response.data.errors));
                 }
             )
     }

@@ -13,13 +13,16 @@ const LoginForm = (props) => {
     if (props.auth.authReducer.isAuth) {
         return <Redirect to={"/"} />
     }
+
+    let errorLogin = props.auth.authReducer.errors.auth ?? props.auth.authReducer.errors.auth;
+
     return (
         <form onSubmit={props.handleSubmit}>
             <Field
-                placeholder="Email"
+                placeholder="E-Mail"
                 name="email"
                 type="email"
-                label="Email"
+                label="E-Mail"
                 component={renderField}
                 validate={[required, email]}
             />
@@ -31,6 +34,9 @@ const LoginForm = (props) => {
                 component={renderField}
                 validate={[required, minLengthPass, maxLengthPass]}
             />
+            <div>
+                { errorLogin }
+            </div>
             <div>
                 <button type="submit" className={LoginCss.button} >Вход</button>
             </div>
