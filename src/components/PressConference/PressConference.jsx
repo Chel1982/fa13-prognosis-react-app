@@ -1,6 +1,7 @@
 import React from "react";
 import PressConferencesCss from "./PressConference.module.css";
 import Source from "../Source/Source";
+import {NavLink} from "react-router-dom";
 
 const PressConference = (props) => {
     return (
@@ -14,9 +15,9 @@ const PressConference = (props) => {
             </div>
             <div dangerouslySetInnerHTML={{ __html: props.press_conference }} />
             <div>
-                <button>
+                <NavLink className={PressConferencesCss.comment} to={"/game/id/" + props.game.id}>
                     Комментировать / Смотреть комментарии
-                </button>
+                </NavLink>
             </div>
             <hr/>
         </div>
