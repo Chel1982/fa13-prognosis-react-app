@@ -12,7 +12,7 @@ const Footer = () => {
             Если, вдруг, у кого - то возникнет желание помочь проекту и пожертвовать денег на его развитие,
             то вот: <br/>
             моя карта: xxxx-xxxx-xxxx-xxxx,<br/>
-            email: fa13-prognosis@activist.com
+            email: fa13-prognosis@gmail.com
             </div>
         </footer>
     )
