@@ -5,12 +5,14 @@ import tournamentListReducer from "./TournamentListReducer";
 import authReducer from "./AuthReducer";
 import { reducer as formReducer } from 'redux-form';
 import gameReducer from "./GameReducer";
+import commentReducer from "./CommentReducer";
 
 let reducers = combineReducers({
     pressConferenceReducer,
     tournamentListReducer,
     authReducer,
     gameReducer,
+    commentReducer,
     form: formReducer
 });
 

@@ -46,11 +46,6 @@ export const getAuthDataThunk = () => {
             .then(response => {
                     dispatch(setUserDataAction(response.data))
                 })
-            .catch(
-                error => {
-                    console.log(error)
-                }
-            )
     }
 }
 
