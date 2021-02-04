@@ -2,10 +2,8 @@ import React from "react";
 import PressConferencesCss from "../PressConference/PressConference.module.css";
 import Source from "../Source/Source";
 
-const Comment = (props) => {
-console.log(props);
+const Game = (props) => {
     let pressConferences = props.game.press_conferences.map(item => (item.press_conference));
-    let comments =  props.game.comments.map(item => (item.comment));
 
     return (
         <>
@@ -17,9 +15,8 @@ console.log(props);
                 <Source source={props.game.text_source.source} type='text' />
             </div>
             <div dangerouslySetInnerHTML={{ __html: pressConferences }} />
-            <div dangerouslySetInnerHTML={{ __html: comments }} />
         </>
     )
 }
 
-export default Comment;
+export default Game;
