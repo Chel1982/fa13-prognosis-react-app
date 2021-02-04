@@ -24,15 +24,15 @@ const GameReducer = (state = initialState, action) => {
 }
 
 const getGameAction = (data) => ({type: GET_GAME, data});
-export const setIsFetchingAction = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
+const setIsFetchingAction = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
 export const getGameThunk = (id) => {
     return (dispatch) => {
         getGame(id)
             .then(
                 response => {
-                    dispatch(getGameAction(response.data))
-                    dispatch(setIsFetchingAction(false))
+                    dispatch(getGameAction(response.data));
+                    dispatch(setIsFetchingAction(false));
                 }
             )
     }
