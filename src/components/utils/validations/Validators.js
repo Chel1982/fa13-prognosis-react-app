@@ -37,15 +37,17 @@ export const renderField = ({
 );
 
 export const renderTextArea = ({
-                                   id,
                            input,
                            label,
                            meta: { touched, error, warning }
                         }) => (
 
     <div>
-        <textarea {...input} id={id} placeholder={label} rows="5" cols="100"/>
-        {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+        <textarea {...input} placeholder={label} rows="5" cols="100"/>
+        <div>
+            {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+        </div>
+
     </div>
 
 );
