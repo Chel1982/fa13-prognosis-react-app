@@ -1,16 +1,19 @@
-import {setComment} from "../api/Comment";
+import {getComments, setComment} from "../api/Comment";
 
 const SET_COMMENT = "SET_COMMENT";
+const GET_COMMENTS = "GET_COMMENTS";
+const TOGGLE_IS_FETCHED_COMMENT = "TOGGLE_IS_FETCHED_COMMENT";
 
 let initialState = {};
 
 const CommentReducer  = (state = initialState, action) => {
     switch (action.type) {
         case SET_COMMENT :
-            return {
-                comment : action.data.comment,
-                user: action.data.user
-            };
+            return {comments: action.data};
+        case GET_COMMENTS :
+            return {comments: action.data};
+        case TOGGLE_IS_FETCHED_COMMENT :
+            return {...state, isFetched: action.isFetched}
         default:
             return state;
     }
@@ -18,7 +21,9 @@ const CommentReducer  = (state = initialState, action) => {
 
 export default CommentReducer;
 
-const setCommentAction = (comment) => ({type: SET_COMMENT, comment})
+const setCommentAction = (data) => ({type: SET_COMMENT, data})
+const getCommentsAction = (data) => ({type: GET_COMMENTS, data})
+const setIsFetchedCommentAction = (isFetched) => ({type: TOGGLE_IS_FETCHED_COMMENT, isFetched})
 
 export const setCommentThunk = (game_id, comment) => {
     return (dispatch) => {
@@ -26,8 +31,16 @@ export const setCommentThunk = (game_id, comment) => {
             .then(response => {
                 dispatch(setCommentAction(response.data))
             })
-            .catch(error => {
-                console.log(error.message)
+    }
+}
+
+export const getCommentsThunk = (game_id) => {
+    setIsFetchedCommentAction(false)
+    return (dispatch) => {
+        getComments(game_id)
+            .then(response => {
+                dispatch(getCommentsAction(response.data));
+                dispatch(setIsFetchedCommentAction(true));
             })
     }
 }

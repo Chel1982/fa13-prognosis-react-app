@@ -11,3 +11,11 @@ export const setComment = async (game_id, comment) => {
         }
     )
 };
+
+export const getComments = async (game_id) => {
+    return await axios.get(
+        VERSION_V1
+        + 'comments/game/'
+        + game_id
+    )
+}

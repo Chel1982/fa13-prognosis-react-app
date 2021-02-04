@@ -1,11 +1,9 @@
 import React from "react";
 import {connect} from "react-redux";
-import {withRouter} from "react-router";
-import {getGameThunk, setIsFetchingAction} from "../../redux/GameReducer";
-import preloader from "../../images/preloader.gif";
 import {reduxForm} from "redux-form";
 import CommentForm from "./CommentForm";
-import {setCommentThunk} from "../../redux/CommentReducer";
+import {setCommentThunk, getCommentsThunk} from "../../redux/CommentReducer";
+import preloader from "../../images/preloader.gif";
 
 class CommentContainer extends React.Component {
     constructor(props) {
@@ -14,29 +12,28 @@ class CommentContainer extends React.Component {
     }
 
     onSubmit (event) {
-        this.props.setCommentThunk(event.target.getAttribute('id'), event.target.comment.value);
-        // console.log(event.target.getAttribute('id'))
-        // console.log(event.target.comment.value)
+        // this.props.setCommentThunk(event.target.getAttribute('id'), event.target.comment.value);
         event.preventDefault();
-        // debugger
-    //
     }
 
     componentDidMount() {
-        this.props.getGameThunk(this.props.match.params.id);
+        this.props.getCommentsThunk(this.props.game_id);
     }
 
     render() {
         return (
             <>
-                {this.props.isFetching
-                ? <img src={preloader} />
-                : <CommentReduxForm
-                    key={this.props.game.id}
-                    onSubmit={this.onSubmit}
-                    game={this.props.game}
-                    auth={this.props.auth}
-                />}
+                {
+                    this.props.isFetched
+                    ? <CommentReduxForm
+                            onSubmit={this.onSubmit}
+                            auth={this.props.auth}
+                            comments={this.props.comments}
+                            game_id={this.props.game_id}
+                        />
+                    : <img src={preloader} />
+                }
+
             </>
         )
     }
@@ -45,24 +42,13 @@ class CommentContainer extends React.Component {
 const mapStateToProps = (state) => {
     return {
         auth: state.authReducer,
-        game: state.gameReducer.game,
-        isFetching: state.gameReducer.isFetching,
-        comment: state.commentReducer
+        comments: state.commentReducer.comments,
+        isFetched: state.commentReducer.isFetched
     }
 }
 
 const CommentReduxForm = reduxForm({form: 'comment'})(CommentForm)
 
 export default connect(mapStateToProps, {
-    getGameThunk, setIsFetchingAction, setCommentThunk
-})(withRouter(CommentContainer));
-
-
-
-
-
-
-
-
-
-
+    setCommentThunk, getCommentsThunk
+})(CommentContainer);

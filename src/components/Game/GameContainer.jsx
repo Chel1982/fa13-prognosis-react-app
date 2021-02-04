@@ -13,11 +13,10 @@ class GameContainer extends React.Component {
         return (
             <>
                 {
-                    this.props.isFetching
-                    ? <img src={preloader} />
-                    : <Game game={this.props.game}/>
+                    this.props.isFetched
+                    ? <Game game={this.props.game}/>
+                    : <img src={preloader} />
                 }
-
             </>
         )
     }
@@ -26,7 +25,7 @@ class GameContainer extends React.Component {
 const mapStateToProps = (state) => {
     return {
         game: state.gameReducer.game,
-        isFetching: state.gameReducer.isFetching
+        isFetched: state.gameReducer.isFetched
     }
 }
 

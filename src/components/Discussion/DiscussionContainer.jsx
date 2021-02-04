@@ -8,7 +8,7 @@ class DiscussionContainer extends React.Component{
         return (
             <>
                 <GameContainer game_id={this.props.match.params.id} />
-                {/*<CommentContainer game_id={this.props.match.params.id} />*/}
+                <CommentContainer game_id={this.props.match.params.id} />
             </>
         )
     }
