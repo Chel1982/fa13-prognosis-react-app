@@ -15,7 +15,7 @@ const PressConference = (props) => {
             </div>
             <div dangerouslySetInnerHTML={{ __html: props.press_conference }} />
             <div>
-                <NavLink className={PressConferencesCss.comment} to={"/game/id/" + props.game.id}>
+                <NavLink className={PressConferencesCss.comment} to={"discussion/game/id/" + props.game.id}>
                     Комментировать / Смотреть комментарии
                 </NavLink>
             </div>

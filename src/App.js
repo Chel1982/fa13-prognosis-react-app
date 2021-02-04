@@ -8,7 +8,7 @@ import TournamentListContainer from "./components/TournamentList/TournamentListC
 import LoginContainer from "./components/Login/LoginContainer";
 import RegisterContainer from "./components/Register/RegisterContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import CommentContainer from "./components/Comment/CommentContainer";
+import DiscussionContainer from "./components/Discussion/DiscussionContainer";
 
 function App() {
     return (
@@ -38,7 +38,7 @@ function App() {
                                type='tournament'
                                className="item-main-content"/>
                            }/>
-                    <Route path='/game/id/:id' render={() => <CommentContainer />} />
+                    <Route path='discussion/game/id/:id' render={() => <DiscussionContainer />} />
                     <Route path='*'
                            render={() => <div>404 NOT FOUND</div>}/>
                 </Switch>
