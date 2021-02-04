@@ -12,7 +12,7 @@ class CommentContainer extends React.Component {
     }
 
     onSubmit (event) {
-        // this.props.setCommentThunk(event.target.getAttribute('id'), event.target.comment.value);
+        this.props.setCommentThunk(event.target.getAttribute('id'), event.target.comment.value);
         event.preventDefault();
     }
 
