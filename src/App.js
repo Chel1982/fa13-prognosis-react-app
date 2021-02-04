@@ -38,7 +38,7 @@ function App() {
                                type='tournament'
                                className="item-main-content"/>
                            }/>
-                    <Route path='discussion/game/id/:id' render={() => <DiscussionContainer />} />
+                    <Route path='/discussion/game/id/:id' render={() => <DiscussionContainer />} />
                     <Route path='*'
                            render={() => <div>404 NOT FOUND</div>}/>
                 </Switch>
