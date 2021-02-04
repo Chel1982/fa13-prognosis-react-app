@@ -9,7 +9,7 @@ let initialState = {};
 const CommentReducer  = (state = initialState, action) => {
     switch (action.type) {
         case SET_COMMENT :
-            return {...state, comments: [...state.comments, action.data]};
+            return {...state, comments: [action.data, ...state.comments]};
         case GET_COMMENTS :
             return {comments: action.data};
         case TOGGLE_IS_FETCHED_COMMENT :
