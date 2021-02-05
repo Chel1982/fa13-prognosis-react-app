@@ -13,7 +13,6 @@ let minLengthPass = minLength(MIN_LENGTH);
 let maxLengthPass = maxLength(MAX_LENGTH);
 
 const CommentForm = (props) => {
-    // console.log(props)
     let buttonStyle = props.auth.isAuth
         ? PressConferencesCss.comment
         : PressConferencesCss.commentNoActive;
@@ -32,9 +31,9 @@ const CommentForm = (props) => {
            <div key={item.id} className={CommentCss.answer}>
                <div className={CommentCss.divName}>
                    <span>{item.user.name}</span>:
-                   <button onClick={props.onClickAnswer} className={buttonStyleAnswer} title={buttonTitle}>Ответить</button>
-                   <button className={CommentCss.answerButtonNoActive} title="Кнопки находятся в процессе разработки">Редактировать</button>
-                   <button className={CommentCss.answerButtonNoActive} title="Кнопки находятся в процессе разработки">Удалить</button>
+                   <button onClick={props.onClickAnswer} className={CommentCss.answerButtonNoActive} title="Кнопка находятся в процессе разработки">Ответить</button>
+                   <button className={CommentCss.answerButtonNoActive} title="Кнопка находятся в процессе разработки">Редактировать</button>
+                   <button className={CommentCss.answerButtonNoActive} title="Кнопка находятся в процессе разработки">Удалить</button>
                </div>
                <div dangerouslySetInnerHTML={{ __html: item.comment }} />
                <div className={CommentCss.answerCommentNoActive}>
