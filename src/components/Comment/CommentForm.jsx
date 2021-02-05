@@ -15,6 +15,9 @@ const CommentForm = (props) => {
     let buttonStyle = props.auth.isAuth
         ? PressConferencesCss.comment
         : PressConferencesCss.commentNoActive;
+    let buttonStyleAnswer = props.auth.isAuth
+        ? CommentCss.answerButton
+        : CommentCss.answerButtonNoActive;
     let buttonTitle = props.auth.isAuth
         ? ''
         : 'Только зарегистрированные пользователи могут оставлять комментарии';
@@ -24,21 +27,29 @@ const CommentForm = (props) => {
 
     let comments =  props.comments.map(item => {
        return (
-           <div key={item.id}>
+           <div key={item.id} className={CommentCss.answer}>
+               <div className={CommentCss.divName}>
+                   <span>{item.user.name}</span>:
+                   <button className={buttonStyleAnswer} title={buttonTitle}>Ответить</button>
+                   <button className={CommentCss.answerButtonNoActive} title="Кнопки находятся в процессе разработки">Редактировать</button>
+                   <button className={CommentCss.answerButtonNoActive} title="Кнопки находятся в процессе разработки">Удалить</button>
+               </div>
                <div dangerouslySetInnerHTML={{ __html: item.comment }} />
-               {/*<div className={textStyle}>*/}
-               {/*    <Field*/}
-               {/*        placeholder="Ваш комментарий:"*/}
-               {/*        name="text"*/}
-               {/*        type="hidden"*/}
-               {/*        label="Комментарий"*/}
-               {/*        component={renderTextArea}*/}
-               {/*        validate={[minLengthPass, maxLengthPass]}*/}
-               {/*    />*/}
-               {/*</div>*/}
-               {/*<div>*/}
-               {/*    <button type="submit" className={buttonStyle} title={buttonTitle}>Ответить</button>*/}
-               {/*</div>*/}
+               <div className={CommentCss.answerCommentNoActive}>
+                   <form id={item.id}>
+                       <Field
+                           placeholder="Ваш комментарий:"
+                           name="text"
+                           type="hidden"
+                           label="Комментарий"
+                           component={renderTextArea}
+                           validate={[minLengthPass, maxLengthPass]}
+                       />
+                       <div>
+                           <button type="submit" className={buttonStyle} title={buttonTitle}>Комментировать</button>
+                       </div>
+                   </form>
+               </div>
             </div>
            );
     });
