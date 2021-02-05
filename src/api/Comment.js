@@ -13,7 +13,18 @@ export const setComment = async (game_id, comment) => {
     )
 };
 
-export const getComments = async (game_id) => {
+export const getComments = async (data = '', game_id) => {
+    if (data) {
+        return await axios.get(
+            VERSION_V1
+            + 'comments/game/'
+            + data.game_id
+            + '/count/'
+            + COUNT
+            + '?page='
+            + data.page
+        )
+    }
     return await axios.get(
         VERSION_V1
         + 'comments/game/'
@@ -21,4 +32,5 @@ export const getComments = async (game_id) => {
         + '/count/'
         + COUNT
     )
+
 }

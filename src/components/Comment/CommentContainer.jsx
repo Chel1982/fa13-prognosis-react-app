@@ -22,7 +22,13 @@ class CommentContainer extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getCommentsThunk(this.props.game_id);
+        this.props.getCommentsThunk('', this.props.game_id);
+    }
+
+    params = () => {
+        return {
+            game_id : this.props.game_id
+        }
     }
 
     render() {
@@ -35,7 +41,10 @@ class CommentContainer extends React.Component {
                             onClickAnswer={this.onClickAnswer}
                             auth={this.props.auth}
                             comments={this.props.comments.data}
+                            dataPagination={this.props.comments}
                             game_id={this.props.game_id}
+                            getCommentsThunk={this.props.getCommentsThunk}
+                            params={this.params}
                         />
                     : <img src={preloader} />
                 }

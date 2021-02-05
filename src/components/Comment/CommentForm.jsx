@@ -3,6 +3,8 @@ import {Field} from "redux-form";
 import {maxLength, minLength, renderTextArea} from "../utils/validations/Validators";
 import PressConferencesCss from "../PressConference/PressConference.module.css";
 import CommentCss from "./Comment.module.css"
+import PaginationCss from "../Pagination/Pagination.module.css";
+import {Pagination} from "react-laravel-paginex";
 
 const MIN_LENGTH = 2;
 const MAX_LENGTH = 1500;
@@ -11,7 +13,6 @@ let minLengthPass = minLength(MIN_LENGTH);
 let maxLengthPass = maxLength(MAX_LENGTH);
 
 const CommentForm = (props) => {
-
     let buttonStyle = props.auth.isAuth
         ? PressConferencesCss.comment
         : PressConferencesCss.commentNoActive;
@@ -71,6 +72,15 @@ const CommentForm = (props) => {
             </form>
             <div>
                 {comments}
+                <Pagination
+                    changePage={props.getCommentsThunk}
+                    data={props.dataPagination}
+                    nextButtonText="Следующая"
+                    prevButtonText="Предыдущая"
+                    containerClass={PaginationCss.pagination}
+                    activeClass={PaginationCss.active}
+                    requestParams={props.params()}
+                />
             </div>
         </>
     )

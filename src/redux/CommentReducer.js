@@ -29,17 +29,16 @@ export const setCommentThunk = (game_id, comment) => {
     return (dispatch) => {
         setComment(game_id, comment)
             .then(response => {
-                dispatch(setCommentAction(response.data))
+                dispatch(setCommentAction(response.data.data))
             })
     }
 }
 
-export const getCommentsThunk = (game_id) => {
+export const getCommentsThunk = (data = '', game_id) => {
     setIsFetchedCommentAction(false)
     return (dispatch) => {
-        getComments(game_id)
+        getComments(data, game_id)
             .then(response => {
-                console.log(response.data)
                 dispatch(getCommentsAction(response.data));
                 dispatch(setIsFetchedCommentAction(true));
             })
