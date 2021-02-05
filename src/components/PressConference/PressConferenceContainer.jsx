@@ -2,9 +2,8 @@ import React from "react";
 import {connect} from "react-redux";
 import PressConference from "./PressConference";
 import {getLastAllPressConferencesThunk, getForIdLastPressConferencesThunk} from "../../redux/PressConferenceReducer";
-import {Pagination} from 'react-laravel-paginex';
-import PaginationCss from "../Pagination/Pagination.module.css";
 import {withRouter} from "react-router";
+import preloader from "../../images/preloader.gif";
 
 class PressConferencesContainer extends React.Component {
     componentDidMount() {
@@ -27,8 +26,8 @@ class PressConferencesContainer extends React.Component {
                     break;
                 case 'tournament' : this.props.getForIdLastPressConferencesThunk(
                     null,
-                    this.props.match.params.id
-                );
+                        this.props.match.params.id
+                    );
                     break;
                 default: {}
             }
@@ -46,42 +45,27 @@ class PressConferencesContainer extends React.Component {
     }
 
     render() {
-        if (this.props.pressConferenceReducer.lastAllPressConferences && this.props.type === 'all') {
-            let lastAll = this.props.pressConferenceReducer.lastAllPressConferences.data.map(
-                    item => (<PressConference key={item.id.toString()} {...item} />)
-                );
+        if (this.props.type === 'all') {
             return (
-                <div>
-                    {lastAll}
-                    <Pagination
-                        changePage={this.props.getLastAllPressConferencesThunk}
-                        data={this.props.pressConferenceReducer.lastAllPressConferences}
-                        nextButtonText="Следующая"
-                        prevButtonText="Предыдущая"
-                        containerClass={PaginationCss.pagination}
-                        activeClass={PaginationCss.active}
+                this.props.isFetched
+                    ? <PressConference
+                        pressConf={this.props.lastAllPressConferences}
+                        paginationThunk={this.props.getLastAllPressConferencesThunk}
+                        paginationParams={this.params}
                     />
-                </div>
+                    : <img src={preloader} />
             )
         }
 
-        if (this.props.pressConferenceReducer.lastForIdAllPressConferences && this.props.type === 'tournament') {
-            let lastForId = this.props.pressConferenceReducer.lastForIdAllPressConferences.data.map(
-                item => (<PressConference key={item.id.toString()} {...item} />)
-            );
+        if (this.props.type === 'tournament') {
             return (
-                <div>
-                    {lastForId}
-                    <Pagination
-                        changePage={this.props.getForIdLastPressConferencesThunk}
-                        data={this.props.pressConferenceReducer.lastForIdAllPressConferences}
-                        nextButtonText="Следующая"
-                        prevButtonText="Предыдущая"
-                        containerClass={PaginationCss.pagination}
-                        activeClass={PaginationCss.active}
-                        requestParams={this.params()}
+                this.props.isFetched
+                    ? <PressConference
+                        pressConf={this.props.lastForIdAllPressConferences}
+                        paginationThunk={this.props.getForIdLastPressConferencesThunk}
+                        paginationParams={this.params}
                     />
-                </div>
+                    : <img src={preloader} />
             )
         }
 
@@ -93,7 +77,9 @@ class PressConferencesContainer extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        ...state
+        lastForIdAllPressConferences: state.pressConferenceReducer.lastForIdAllPressConferences,
+        lastAllPressConferences: state.pressConferenceReducer.lastAllPressConferences,
+        isFetched: state.pressConferenceReducer.isFetched
     }
 }
 
