@@ -32,7 +32,6 @@ class CommentContainer extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <>
                 {
