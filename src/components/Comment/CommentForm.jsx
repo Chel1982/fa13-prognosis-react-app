@@ -30,7 +30,7 @@ const CommentForm = (props) => {
            <div key={item.id} className={CommentCss.answer}>
                <div className={CommentCss.divName}>
                    <span>{item.user.name}</span>:
-                   <button className={buttonStyleAnswer} title={buttonTitle}>Ответить</button>
+                   <button onClick={props.onClickAnswer} className={buttonStyleAnswer} title={buttonTitle}>Ответить</button>
                    <button className={CommentCss.answerButtonNoActive} title="Кнопки находятся в процессе разработки">Редактировать</button>
                    <button className={CommentCss.answerButtonNoActive} title="Кнопки находятся в процессе разработки">Удалить</button>
                </div>

@@ -39,6 +39,7 @@ export const getCommentsThunk = (game_id) => {
     return (dispatch) => {
         getComments(game_id)
             .then(response => {
+                console.log(response.data)
                 dispatch(getCommentsAction(response.data));
                 dispatch(setIsFetchedCommentAction(true));
             })

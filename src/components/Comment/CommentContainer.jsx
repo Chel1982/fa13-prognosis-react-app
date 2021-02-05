@@ -17,6 +17,10 @@ class CommentContainer extends React.Component {
         event.preventDefault();
     }
 
+    onClickAnswer (event) {
+        console.log(event.target.getAttribute('id'))
+    }
+
     componentDidMount() {
         this.props.getCommentsThunk(this.props.game_id);
     }
@@ -28,13 +32,13 @@ class CommentContainer extends React.Component {
                     this.props.isFetched
                     ? <CommentReduxForm
                             onSubmit={this.onSubmit}
+                            onClickAnswer={this.onClickAnswer}
                             auth={this.props.auth}
-                            comments={this.props.comments}
+                            comments={this.props.comments.data}
                             game_id={this.props.game_id}
                         />
                     : <img src={preloader} />
                 }
-
             </>
         )
     }
