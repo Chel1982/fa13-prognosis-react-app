@@ -9,9 +9,9 @@ let initialState = {};
 const CommentReducer  = (state = initialState, action) => {
     switch (action.type) {
         case SET_COMMENT :
-            return {...state, comments: [action.data, ...state.comments]};
+            return {...state, data: [action.data, ...state.data]};
         case GET_COMMENTS :
-            return {comments: action.data};
+            return {...action.data};
         case TOGGLE_IS_FETCHED_COMMENT :
             return {...state, isFetched: action.isFetched}
         default:
@@ -29,7 +29,7 @@ export const setCommentThunk = (game_id, comment) => {
     return (dispatch) => {
         setComment(game_id, comment)
             .then(response => {
-                dispatch(setCommentAction(response.data.data))
+                dispatch(setCommentAction(response.data))
             })
     }
 }

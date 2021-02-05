@@ -13,6 +13,7 @@ let minLengthPass = minLength(MIN_LENGTH);
 let maxLengthPass = maxLength(MAX_LENGTH);
 
 const CommentForm = (props) => {
+    // console.log(props)
     let buttonStyle = props.auth.isAuth
         ? PressConferencesCss.comment
         : PressConferencesCss.commentNoActive;

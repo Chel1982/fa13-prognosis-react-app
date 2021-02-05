@@ -32,6 +32,7 @@ class CommentContainer extends React.Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <>
                 {
@@ -56,7 +57,7 @@ class CommentContainer extends React.Component {
 const mapStateToProps = (state) => {
     return {
         auth: state.authReducer,
-        comments: state.commentReducer.comments,
+        comments: state.commentReducer,
         isFetched: state.commentReducer.isFetched
     }
 }
