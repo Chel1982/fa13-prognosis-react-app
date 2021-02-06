@@ -1,6 +1,6 @@
 import axios from "axios";
 const VERSION_V1 = '/v1/';
-const COUNT = 10;
+const COUNT = 15;
 
 export const setComment = async (game_id, comment) => {
     return await axios.post(
