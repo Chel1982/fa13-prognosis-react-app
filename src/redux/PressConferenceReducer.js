@@ -9,7 +9,6 @@ const COUNT_PRESS_CONF = 5;
 let initialState = {}
 
 const PressConferenceReducer = (state = initialState, action) => {
-    debugger
     switch (action.type) {
         case GET_LAST_ALL_PRESS_CONF :
             return {...state, lastAllPressConferences: action.data};
