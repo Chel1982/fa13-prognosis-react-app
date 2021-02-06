@@ -40,13 +40,11 @@ const setUserDataAction = (data) => ({type: SET_USER_DATA, data});
 const logoutUserAction = () => ({type: LOGOUT_USER});
 const setErrorDataAction = (data) => ({type: SET_ERROR_DATA, data})
 
-export const getAuthDataThunk = () => {
-    return (dispatch) => {
-        auth()
+export const getAuthDataThunk = () => (dispatch) => {
+    return auth()
             .then(response => {
                     dispatch(setUserDataAction(response.data))
                 })
-    }
 }
 
 export const loginThunk = (data) => {

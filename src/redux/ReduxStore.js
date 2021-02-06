@@ -6,6 +6,7 @@ import authReducer from "./AuthReducer";
 import { reducer as formReducer } from 'redux-form';
 import gameReducer from "./GameReducer";
 import commentReducer from "./CommentReducer";
+import appReducer from "./AppReducer";
 
 let reducers = combineReducers({
     pressConferenceReducer,
@@ -13,6 +14,7 @@ let reducers = combineReducers({
     authReducer,
     gameReducer,
     commentReducer,
+    appReducer,
     form: formReducer
 });
 

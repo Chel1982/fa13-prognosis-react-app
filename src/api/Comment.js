@@ -9,6 +9,9 @@ export const setComment = async (game_id, comment) => {
         {
             game_id: game_id,
             comment: comment
+        },
+        {
+            headers: { Authorization : 'Bearer ' + localStorage.getItem('token')}
         }
     )
 };
