@@ -18,12 +18,12 @@ let minLengthPass = minLength(MIN_LENGTH);
 let maxLengthPass = maxLength(MAX_LENGTH);
 
 const RegisterForm = (props) => {
-    if (props.auth.authReducer.isAuth) {
+    if (props.auth.isAuth) {
         return <Redirect to={"/"} />
     }
 
-    let nameError = props.auth.authReducer.errors.name ?? props.auth.authReducer.errors.name;
-    let emailError = props.auth.authReducer.errors.email ?? props.auth.authReducer.errors.email;
+    let nameError = props.auth.errors.name ?? props.auth.errors.name;
+    let emailError = props.auth.errors.email ?? props.auth.errors.email;
 
      return (
         <form onSubmit={props.handleSubmit}>
@@ -70,7 +70,7 @@ const RegisterForm = (props) => {
             />
 
             <div>
-                <button type="submit" className={LoginCss.button} >Регистрация</button>
+                <button className={LoginCss.button} >Регистрация</button>
             </div>
         </form>
     )

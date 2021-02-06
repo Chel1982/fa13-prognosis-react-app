@@ -19,7 +19,7 @@ class LoginContainer extends React.Component {
         return (
             <div className={LoginCss.main}>
                 <h1>Вход в систему</h1>
-                <LoginReduxForm auth={this.props} onSubmit={this.handleSubmit} />
+                <LoginReduxForm auth={this.props.auth} onSubmit={this.handleSubmit} />
             </div>
         )
     }
@@ -29,7 +29,7 @@ const LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
 
 const mapStateToProps = (state) => {
     return {
-        ...state
+        auth: state.authReducer
     }
 }
 

@@ -19,7 +19,7 @@ class RegisterContainer extends React.Component {
         return(
             <div className={LoginCss.main}>
                 <h1>Регистрация в системе</h1>
-                <RegisterReduxForm auth={this.props} onSubmit={this.handleSubmit} />
+                <RegisterReduxForm auth={this.props.auth} onSubmit={this.handleSubmit} />
             </div>
         )
     }
@@ -27,7 +27,7 @@ class RegisterContainer extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        ...state
+        auth: state.authReducer
     }
 }
 

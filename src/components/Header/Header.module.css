@@ -33,6 +33,7 @@
 }
 
 .login {
+    margin-left: 2.5em;
     width: 5.5em;
     display: inline-block;
     font-size: 80%;
@@ -79,7 +80,8 @@
     margin-top: auto;
     margin-bottom: auto;
     margin-right: 5px;
-    width: 6%;
+    width: 10%;
+    text-align: center;
 }
 
 .registerDiv {

@@ -10,11 +10,11 @@ let minLengthPass = minLength(MIN_LENGTH);
 let maxLengthPass = maxLength(MAX_LENGTH);
 
 const LoginForm = (props) => {
-    if (props.auth.authReducer.isAuth) {
+    if (props.auth.isAuth) {
         return <Redirect to={"/"} />
     }
 
-    let errorLogin = props.auth.authReducer.errors.auth ?? props.auth.authReducer.errors.auth;
+    let errorLogin = props.auth.errors.auth ?? props.auth.errors.auth;
 
     return (
         <form onSubmit={props.handleSubmit}>

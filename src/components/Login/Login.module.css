@@ -3,6 +3,7 @@
 }
 
 .button {
+    cursor: pointer;
     display: inline-block;
     width: 15em;
     font-size: 80%;
