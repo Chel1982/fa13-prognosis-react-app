@@ -47,7 +47,7 @@ class PressConferencesContainer extends React.Component {
     render() {
         if (this.props.type === 'all') {
             return (
-                this.props.isFetched
+                this.props.allFetched
                     ? <PressConference
                         pressConf={this.props.lastAllPressConferences}
                         paginationThunk={this.props.getLastAllPressConferencesThunk}
@@ -59,7 +59,7 @@ class PressConferencesContainer extends React.Component {
 
         if (this.props.type === 'tournament') {
             return (
-                this.props.isFetched
+                this.props.tournamentFetched
                     ? <PressConference
                         pressConf={this.props.lastForIdAllPressConferences}
                         paginationThunk={this.props.getForIdLastPressConferencesThunk}
@@ -77,9 +77,10 @@ class PressConferencesContainer extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        lastForIdAllPressConferences: state.pressConferenceReducer.lastForIdAllPressConferences,
         lastAllPressConferences: state.pressConferenceReducer.lastAllPressConferences,
-        isFetched: state.pressConferenceReducer.isFetched
+        lastForIdAllPressConferences: state.pressConferenceReducer.lastForIdAllPressConferences,
+        allFetched: state.pressConferenceReducer.allFetched,
+        tournamentFetched: state.pressConferenceReducer.tournamentFetched
     }
 }
 
