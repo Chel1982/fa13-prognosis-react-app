@@ -4,7 +4,6 @@ const GET_LAST_ALL_PRESS_CONF = "GET_LAST_ALL_PRESS_CONF";
 const GET_LAST_FOR_ID_PRESS_CONF = 'GET_LAST_FOR_ID_PRESS_CONF';
 const TOGGLE_IS_FETCHED_LAST_PRESS = "TOGGLE_IS_FETCHED_LAST_PRESS";
 const TOGGLE_IS_FETCHED_LAST_PRESS_FOR_ID = "TOGGLE_IS_FETCHED_LAST_PRESS_FOR_ID";
-const COUNT_PRESS_CONF = 5;
 
 let initialState = {}
 
@@ -31,7 +30,7 @@ const setIsFetchedLastPressForIdAction = (isFetched) => ({type: TOGGLE_IS_FETCHE
 export const getForIdLastPressConferencesThunk = (data = '', tournamentId) => {
     return (dispatch) => {
         dispatch(setIsFetchedLastPressForIdAction(false))
-        getForIdLastPressConferences(data, tournamentId, COUNT_PRESS_CONF)
+        getForIdLastPressConferences(data, tournamentId)
             .then(response => {
                 dispatch(getForIDPressAction(response.data));
                 dispatch(setIsFetchedLastPressForIdAction(true));
@@ -42,7 +41,7 @@ export const getForIdLastPressConferencesThunk = (data = '', tournamentId) => {
 export const getLastAllPressConferencesThunk = (data = '') => {
     return (dispatch) => {
         dispatch(setIsFetchedLastPressAction(false));
-        getLastPressConference(data, COUNT_PRESS_CONF)
+        getLastPressConference(data)
             .then(response => {
                 dispatch(getAllPressAction(response.data))
                 dispatch(setIsFetchedLastPressAction(true));

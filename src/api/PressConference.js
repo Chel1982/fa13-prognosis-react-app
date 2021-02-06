@@ -1,22 +1,23 @@
 import axios from "axios";
 
 const VERSION_V1 = '/v1/';
+const COUNT_PRESS_CONF = 5;
 
-export const getLastPressConference = async (data = '', countPressConf) => {
+export const getLastPressConference = async (data = '') => {
     if (data) {
         return await axios.get(VERSION_V1 + 'press-conferences/count/'
-            + countPressConf + '?page=' + data.page);
+            + COUNT_PRESS_CONF + '?page=' + data.page);
     }
-    return await axios.get(VERSION_V1 + 'press-conferences/count/' + countPressConf);
+    return await axios.get(VERSION_V1 + 'press-conferences/count/' + COUNT_PRESS_CONF);
 }
 
-export const getForIdLastPressConferences = async (data = '', tournamentId, countPressConf) => {
+export const getForIdLastPressConferences = async (data = '', tournamentId) => {
     if (data) {
         return await axios.get(VERSION_V1
             + 'press-conferences/tournament_id/'
             + data.tournament_id
             + '/count/'
-            + countPressConf
+            + COUNT_PRESS_CONF
             + '?page='
             + data.page);
     }
@@ -24,5 +25,5 @@ export const getForIdLastPressConferences = async (data = '', tournamentId, coun
         + 'press-conferences/tournament_id/'
         + tournamentId
         + '/count/'
-        + countPressConf);
+        + COUNT_PRESS_CONF);
 }
