@@ -48,29 +48,29 @@ class PressConferencesContainer extends React.Component {
         if (this.props.type === 'all') {
             return (
                 this.props.allFetched
-                    ? <PressConference
-                        pressConf={this.props.lastAllPressConferences}
-                        paginationThunk={this.props.getLastAllPressConferencesThunk}
-                        paginationParams={this.params}
-                    />
-                    : <img src={preloader} />
+                ? <PressConference
+                    pressConf={this.props.lastAllPressConferences}
+                    paginationThunk={this.props.getLastAllPressConferencesThunk}
+                    paginationParams={this.params}
+                />
+                : <img src={preloader} />
             )
         }
 
         if (this.props.type === 'tournament') {
             return (
                 this.props.tournamentFetched
-                    ? <PressConference
-                        pressConf={this.props.lastForIdAllPressConferences}
-                        paginationThunk={this.props.getForIdLastPressConferencesThunk}
-                        paginationParams={this.params}
-                    />
-                    : <img src={preloader} />
+                ? <PressConference
+                    pressConf={this.props.lastForIdAllPressConferences}
+                    paginationThunk={this.props.getForIdLastPressConferencesThunk}
+                    paginationParams={this.params}
+                />
+                : <img src={preloader} />
             )
         }
 
         return (
-            <div></div>
+            <></>
         )
     }
 }
