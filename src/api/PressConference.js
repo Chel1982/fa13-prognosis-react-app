@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const VERSION_V1 = '/v1/';
-const COUNT_PRESS_CONF = 5;
+const COUNT_PRESS_CONF = 15;
 
 export const getLastPressConference = async (data = '') => {
     if (data) {
