@@ -26,7 +26,6 @@ export const initializeThunk = () => (dispatch) => {
     let promiseAuth = dispatch(getAuthDataThunk());
 
     promiseAuth.then((response) => {
-                console.log(response)
             dispatch(setInitializedAction(true))
     })
         .catch(() => {
