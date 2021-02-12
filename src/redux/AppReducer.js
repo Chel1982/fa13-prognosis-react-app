@@ -24,8 +24,7 @@ const setInitializedAction = (initialized) => ({type: SET_INITIALIZED, initializ
 
 export const initializeThunk = () => (dispatch) => {
     let promiseAuth = dispatch(getAuthDataThunk());
-
-    promiseAuth.then((response) => {
+    promiseAuth.then(() => {
             dispatch(setInitializedAction(true))
     })
         .catch(() => {
