@@ -72,15 +72,19 @@ const CommentForm = (props) => {
             </form>
             <div>
                 {comments}
-                <Pagination
-                    changePage={props.getCommentsThunk}
-                    data={props.dataPagination}
-                    nextButtonText="Следующая"
-                    prevButtonText="Предыдущая"
-                    containerClass={PaginationCss.pagination}
-                    activeClass={PaginationCss.active}
-                    requestParams={props.params()}
-                />
+                {
+                props.dataPagination.last_page > 1
+                ?   <Pagination
+                        changePage={props.getCommentsThunk}
+                        data={props.dataPagination}
+                        nextButtonText="Следующая"
+                        prevButtonText="Предыдущая"
+                        containerClass={PaginationCss.pagination}
+                        activeClass={PaginationCss.active}
+                        requestParams={props.params()}
+                    />
+                    : null
+                }
             </div>
         </>
     )
