@@ -57,7 +57,7 @@ const CommentForm = (props) => {
 
     return (
         <>
-            <form id={props.game_id} onSubmit={props.onSubmit}>
+            <form id={props.id} name={props.type} onSubmit={props.onSubmit}>
                 <div className={textStyle}>
                     <Field
                         name="comment"

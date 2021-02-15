@@ -49,6 +49,7 @@ class PressConferencesContainer extends React.Component {
             return (
                 this.props.allFetched
                 ? <PressConference
+                    type='all'
                     pressConf={this.props.lastAllPressConferences}
                     paginationThunk={this.props.getLastAllPressConferencesThunk}
                     paginationParams={this.params}
@@ -61,6 +62,7 @@ class PressConferencesContainer extends React.Component {
             return (
                 this.props.tournamentFetched
                 ? <PressConference
+                    type='tournament'
                     pressConf={this.props.lastForIdAllPressConferences}
                     paginationThunk={this.props.getForIdLastPressConferencesThunk}
                     paginationParams={this.params}

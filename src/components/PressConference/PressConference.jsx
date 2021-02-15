@@ -7,6 +7,38 @@ import PaginationCss from "../Pagination/Pagination.module.css";
 
 const PressConference = (props) => {
 
+    let champConf = (
+        <>
+        </>
+    );
+    if (props.type === 'all') {
+        champConf = (
+            <>
+                <div className={PressConferencesCss.titleDiv}>
+                    <b className={PressConferencesCss.titleAll}>Общий чат всех турниров:</b>
+                    <NavLink className={PressConferencesCss.comment} to={"/discussion/tournament/id/1"}>
+                        Комментировать / Смотреть комментарии
+                    </NavLink>
+                </div>
+                <hr/>
+            </>
+        );
+    }
+
+    if (props.type === 'tournament') {
+        champConf = (
+            <>
+                <div className={PressConferencesCss.titleDiv}>
+                    <b className={PressConferencesCss.titleAll}>Общий чат: {props.pressConf.data[0].game.tournament.name}</b>
+                    <NavLink className={PressConferencesCss.comment} to={"/discussion/tournament/id/" + props.pressConf.data[0].game.tournament.id}>
+                        Комментировать / Смотреть комментарии
+                    </NavLink>
+                </div>
+                <hr/>
+            </>
+        )
+    }
+
     let pressesConf = props.pressConf.data.map(item =>
                 (
                     <div key={item.id} id={item.game.id}>
@@ -30,6 +62,7 @@ const PressConference = (props) => {
         );
     return (
         <>
+            {champConf}
             {pressesConf}
             <Pagination
                 changePage={props.paginationThunk}

@@ -12,22 +12,24 @@ class CommentContainer extends React.Component {
     }
 
     onSubmit (event) {
-        this.props.setCommentThunk(event.target.getAttribute('id'), event.target.comment.value);
+        this.props.setCommentThunk(event.target.comment.value, event.target.getAttribute('name'), event.target.getAttribute('id'));
         event.target.comment.value = '';
         event.preventDefault();
     }
 
     onClickAnswer (event) {
-        console.log(event.target.getAttribute('id'))
+        // console.log(event.target.getAttribute('id'))
     }
 
     componentDidMount() {
-        this.props.getCommentsThunk('', this.props.game_id);
+        this.props.type === 'game' && this.props.getCommentsThunk('', 'game', this.props.id);
+        this.props.type === 'tournament' && this.props.getCommentsThunk('', 'tournament', this.props.id);
     }
 
     params = () => {
         return {
-            game_id : this.props.game_id
+            type : this.props.type,
+            id : this.props.id
         }
     }
 
@@ -42,7 +44,8 @@ class CommentContainer extends React.Component {
                             auth={this.props.auth}
                             comments={this.props.comments.data}
                             dataPagination={this.props.comments}
-                            game_id={this.props.game_id}
+                            id={this.props.id}
+                            type={this.props.type}
                             getCommentsThunk={this.props.getCommentsThunk}
                             params={this.params}
                         />

@@ -8,6 +8,14 @@
     font-weight: 600;
 }
 
+.titleAll {
+    margin-right: 15px;
+}
+
+.titleDiv{
+    margin-top: 9px;
+}
+
 .comment {
     cursor: pointer;
     display: inline-block;

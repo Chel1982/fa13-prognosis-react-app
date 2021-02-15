@@ -25,19 +25,20 @@ const setCommentAction = (data) => ({type: SET_COMMENT, data})
 const getCommentsAction = (data) => ({type: GET_COMMENTS, data})
 const setIsFetchedCommentAction = (isFetched) => ({type: TOGGLE_IS_FETCHED_COMMENT, isFetched})
 
-export const setCommentThunk = (game_id, comment) => {
+export const setCommentThunk = (comment, type, id) => {
+    console.log()
     return (dispatch) => {
-        setComment(game_id, comment)
+        setComment(comment, type, id)
             .then(response => {
                 dispatch(setCommentAction(response.data))
             })
     }
 }
 
-export const getCommentsThunk = (data = '', game_id) => {
+export const getCommentsThunk = (data = '', type, id) => {
     return (dispatch) => {
         dispatch(setIsFetchedCommentAction(false));
-        getComments(data, game_id)
+        getComments(data, type, id)
             .then(response => {
                 dispatch(getCommentsAction(response.data));
                 dispatch(setIsFetchedCommentAction(true));

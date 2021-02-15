@@ -2,13 +2,14 @@ import axios from "axios";
 const VERSION_V1 = '/v1/';
 const COUNT = 15;
 
-export const setComment = async (game_id, comment) => {
+export const setComment = async (comment, type, id) => {
     return await axios.post(
         VERSION_V1
-        + 'comment/game',
+        + 'comment',
         {
-            game_id: game_id,
-            comment: comment
+            comment: comment,
+            type: type,
+            id: id
         },
         {
             headers: { Authorization : 'Bearer ' + localStorage.getItem('token')}
@@ -16,12 +17,14 @@ export const setComment = async (game_id, comment) => {
     )
 };
 
-export const getComments = async (data = '', game_id) => {
+export const getComments = async (data = '', type, id) => {
     if (data) {
         return await axios.get(
             VERSION_V1
-            + 'comments/game/'
-            + data.game_id
+            + 'comments/type/'
+            + data.type
+            + '/id/'
+            + data.id
             + '/count/'
             + COUNT
             + '?page='
@@ -30,8 +33,10 @@ export const getComments = async (data = '', game_id) => {
     }
     return await axios.get(
         VERSION_V1
-        + 'comments/game/'
-        + game_id
+        + 'comments/type/'
+        + type
+        + '/id/'
+        + id
         + '/count/'
         + COUNT
     )

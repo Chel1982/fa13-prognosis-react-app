@@ -36,7 +36,7 @@ class App extends React.Component {
                         <Navbar className="item-main-content"/>
                     </div>
                     <div className="item-main-content">
-                        Блок рекламы
+                        {/*Блок рекламы*/}
                     </div>
                     <div className="item-main-content">
                         <Switch>
@@ -54,7 +54,8 @@ class App extends React.Component {
                                        type='tournament'
                                        className="item-main-content"/>
                                    }/>
-                            <Route path='/discussion/game/id/:id' render={() => <DiscussionContainer/>}/>
+                            <Route path='/discussion/game/id/:id' render={() => <DiscussionContainer type='game' />}/>
+                            <Route path='/discussion/tournament/id/:id' render={() => <DiscussionContainer type='tournament' />}/>
                             <Route path='*'
                                    render={() => <div>404 NOT FOUND</div>}/>
                         </Switch>
