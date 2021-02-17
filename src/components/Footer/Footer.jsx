@@ -11,8 +11,9 @@ const Footer = () => {
             <div className={FooterCss.content}>
             Если, вдруг, у кого - то возникнет желание помочь проекту и пожертвовать денег на его развитие,
             то вот: <br/>
-            моя карта: xxxx-xxxx-xxxx-xxxx,<br/>
-            email: fa13-prognosis@gmail.com
+            приватбанк: 5168-7427-0620-7366,<br/>
+            альфабанк: 5355-5712-5227-9047,<br/>
+            email: admin@fa13-prognosis.com.ua
             </div>
         </footer>
     )
