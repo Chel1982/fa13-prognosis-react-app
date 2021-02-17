@@ -10,7 +10,7 @@ const Header = (props) => {
                 <div className={HeaderCss.season}> </div>
                 <div className={HeaderCss.community}>
                     Проект является добровольным творением fa13-сообщества. Если у кого-нибудь
-                    возникнет желание помочь проекты, реквизиты снизу.
+                    возникнет желание помочь проекту, реквизиты снизу.
                 </div>
                 <div className={HeaderCss.loginDiv}>
                     <span className={HeaderCss.nameUser}>
