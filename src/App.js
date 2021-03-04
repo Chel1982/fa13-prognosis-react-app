@@ -13,10 +13,12 @@ import {connect} from "react-redux";
 import preloader from "./images/preloader.gif";
 import {compose} from "redux";
 import {initializeThunk} from "./redux/AppReducer";
+import {getNotificationThunk} from "./redux/NotificationReducer";
 
 class App extends React.Component {
     componentDidMount() {
         this.props.initializeThunk();
+        this.props.getNotificationThunk();
     }
 
     render() {
@@ -74,6 +76,6 @@ const mapStateToProps = (state) => {
 }
 
 export default compose(
-    withRouter, connect(mapStateToProps, {initializeThunk}))
+    withRouter, connect(mapStateToProps, {initializeThunk, getNotificationThunk}))
 (App);
 

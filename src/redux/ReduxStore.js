@@ -8,6 +8,7 @@ import gameReducer from "./GameReducer";
 import commentReducer from "./CommentReducer";
 import appReducer from "./AppReducer";
 import tournamentReducer from "./TournamentReducer"
+import notificationReducer from "./NotificationReducer"
 
 let reducers = combineReducers({
     pressConferenceReducer,
@@ -17,6 +18,7 @@ let reducers = combineReducers({
     commentReducer,
     appReducer,
     tournamentReducer,
+    notificationReducer,
     form: formReducer
 });
 
