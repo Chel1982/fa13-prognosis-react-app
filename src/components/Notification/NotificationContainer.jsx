@@ -4,23 +4,32 @@ import {getNotificationThunk} from "../../redux/NotificationReducer";
 import Notification from "./Notification";
 
 class NotificationContainer extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+    }
+
     componentDidMount() {
         this.props.getNotificationThunk();
-        setInterval(this.props.getNotificationThunk(), 600000);
+        setInterval(this.props.getNotificationThunk(), 3600000);
+    }
+
+    handleClick(event) {
+        console.log(event.target);
+        // console.log(event.target.getAttribute('id'))
     }
 
     render() {
         return(
             <Notification
-              auth={this.props.auth}
               notification={this.props.notification}
+              handleClick={this.handleClick}
             />
         )
     }
 }
 
 const mapStateToProps = (state) => ({
-    auth: state.authReducer,
     notification: state.notificationReducer
 })
 

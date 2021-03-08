@@ -1,0 +1,20 @@
+.icon {
+    margin-top: 20px;
+    margin-right: 20px;
+    width:3%;
+    height:30px;
+    position: relative;
+}
+.txt{
+    background-color:red;
+    font-size:xx-small;
+    position: absolute;
+    padding:2px;
+    top: 5px;
+    left: 5px;
+    border-radius: 25px;
+}
+
+.comment {
+    display: none;
+}

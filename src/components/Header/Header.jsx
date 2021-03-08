@@ -1,6 +1,7 @@
 import React from "react";
 import HeaderCss from "./Header.module.css";
 import {NavLink} from "react-router-dom";
+import NotificationContainer from "../Notification/NotificationContainer";
 
 const Header = (props) => {
     if (props.auth.isAuth) {
@@ -17,6 +18,7 @@ const Header = (props) => {
                         {props.auth.name}
                     </span>
                 </div>
+                <NotificationContainer/>
                 <div className={HeaderCss.registerDiv}>
                     <button
                         className={HeaderCss.register}
