@@ -7,3 +7,10 @@ export const getNotification = async () => {
         + 'notifications'
     )
 }
+
+export const updateNotification = async () => {
+    return await axios.put(
+        VERSION_V1
+        + 'notifications'
+    )
+}

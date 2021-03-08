@@ -18,7 +18,6 @@ import {getNotificationThunk} from "./redux/NotificationReducer";
 class App extends React.Component {
     componentDidMount() {
         this.props.initializeThunk();
-        this.props.getNotificationThunk();
     }
 
     render() {

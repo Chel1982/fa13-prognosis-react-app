@@ -1,4 +1,4 @@
-import {getNotification} from "../api/Notification";
+import {getNotification, updateNotification} from "../api/Notification";
 
 const GET_NOTIFICATION = 'GET_NOTIFICATION';
 
@@ -23,6 +23,13 @@ export const getNotificationThunk = () => {
                     dispatch(getNotificationAction(response.data));
                 }
             )
+    }
+}
+
+export const updateNotificationThunk = () => {
+    return (dispatch) => {
+        updateNotification()
+            .then()
     }
 }
 

@@ -5,11 +5,13 @@ import {NavLink} from "react-router-dom";
 const Notification = (props) => {
     if (props.notification.game && props.notification.game.length > 0) {
         let sourceToGame = props.notification.game.map(item => (
-            <NavLink key={item.id} to={"/discussion/game/id/" + item.game_id}>
-                {"Прокомментировал: " + item.user_from.name},
-                {item.game.tour},
-                {item.game.tournament.name}
-            </NavLink>
+            <div key={item.id} className={NotificationCss.commentEach}>
+                <NavLink to={"/discussion/game/id/" + item.game_id}>
+                    {"Прокомментировал: " + item.user_from.name},
+                    {item.game.tour},
+                    {item.game.tournament.name}
+                </NavLink>
+            </div>
         ));
         return (
             <>
@@ -18,7 +20,7 @@ const Notification = (props) => {
                          width="100%" height="100%"/>
                     <div className={NotificationCss.txt}>{props.notification.game.length}</div>
                 </div>
-                <div className={NotificationCss.comment}>
+                <div id="commentGame" className={NotificationCss.comment}>
                     {sourceToGame}
                 </div>
             </>

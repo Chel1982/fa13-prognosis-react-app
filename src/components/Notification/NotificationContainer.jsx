@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {getNotificationThunk} from "../../redux/NotificationReducer";
+import {getNotificationThunk, updateNotificationThunk} from "../../redux/NotificationReducer";
 import Notification from "./Notification";
 
 class NotificationContainer extends React.Component {
@@ -11,12 +11,17 @@ class NotificationContainer extends React.Component {
 
     componentDidMount() {
         this.props.getNotificationThunk();
-        setInterval(this.props.getNotificationThunk(), 3600000);
+        setInterval(this.props.getNotificationThunk, 3600000);
     }
 
-    handleClick(event) {
-        console.log(event.target);
-        // console.log(event.target.getAttribute('id'))
+    handleClick() {
+        let commentGame = document.getElementById('commentGame');
+        if (commentGame.style.display === "block") {
+            commentGame.style = "display:none";
+        } else {
+            commentGame.style = "display:block";
+            this.props.updateNotificationThunk();
+        }
     }
 
     render() {
@@ -33,4 +38,4 @@ const mapStateToProps = (state) => ({
     notification: state.notificationReducer
 })
 
-export default connect(mapStateToProps, {getNotificationThunk})(NotificationContainer);
+export default connect(mapStateToProps, {getNotificationThunk, updateNotificationThunk})(NotificationContainer);
